@@ -1,4 +1,4 @@
-# Terraform Modul instance_vsphere
+# Terraform Modul instance vsphere
 
 Terraform module to provide instance on 
 
