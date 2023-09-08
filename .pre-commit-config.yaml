@@ -1,10 +1,57 @@
 repos:
-  - repo: https://github.com/terraform-docs/terraform-docs
-    rev: "v0.16.0"
+  - repo: local
     hooks:
-      - id: terraform-docs-go
-        args: ["markdown", "."]
-  - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: "v1.77.1"
-    hooks:
-      - id: terraform_fmt
+      - id: terraform-fmt-digitalocean
+        name: terraform fmt digitalocean
+        language: system
+        entry: bash -c 'cd modules/digitalocean && terraform fmt'
+        pass_filenames: false
+
+      - id: terraform-validate-digitalocean
+        name: terraform validate digitalocean
+        language: system
+        entry: bash -c 'cd modules/digitalocean && terraform validate'
+        pass_filenames: false
+
+      - id: terraform-docs-digitalocean
+        name: terraform-docs digitalocean
+        language: system
+        entry: bash -c 'cd modules/digitalocean && terraform-docs md table ./modules/digitalocean'
+        pass_filenames: false
+
+      - id: terraform-fmt-hetzner
+        name: terraform fmt hetzner
+        language: system
+        entry: bash -c 'cd modules/hetzner && terraform fmt'
+        pass_filenames: false
+
+      - id: terraform-validate-hetzner
+        name: terraform validate hetzner
+        language: system
+        entry: bash -c 'cd modules/hetzner && terraform validate'
+        pass_filenames: false
+
+      - id: terraform-docs-hetzner
+        name: terraform-docs hetzner
+        language: system
+        entry: bash -c 'cd modules/hetzner && terraform-docs md table .'
+        pass_filenames: false
+
+      - id: terraform-fmt-vsphere
+        name: terraform fmt vsphere
+        language: system
+        entry: bash -c 'cd modules/vsphere && terraform fmt'
+        pass_filenames: false
+
+      - id: terraform-validate-vsphere
+        name: terraform validate vsphere
+        language: system
+        entry: bash -c 'cd modules/vsphere && terraform validate'
+        pass_filenames: false
+
+      - id: terraform-docs-vsphere
+        name: terraform-docs vsphere
+        language: system
+        entry: bash -c 'cd modules/vsphere && terraform-docs md table .'
+        pass_filenames: false
+

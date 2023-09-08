@@ -1,56 +1,52 @@
-locals {
-  vsphere = (var.cloud_provider == "vsphere")
-}
-
 data "vsphere_datacenter" "instance" {
-  count = var.instance && local.vsphere ? 1 : 0
+  count = var.instance ? 1 : 0
 
   name = var.vsphere.datacenter_name
 }
 
 data "vsphere_datastore" "instance" {
-  count = var.instance && local.vsphere ? 1 : 0
+  count = var.instance ? 1 : 0
 
   name          = var.vsphere.datastore_name
   datacenter_id = data.vsphere_datacenter.instance[0].id
 }
 
 data "vsphere_compute_cluster" "instance" {
-  count = var.instance && local.vsphere ? 1 : 0
+  count = var.instance ? 1 : 0
 
   name          = var.vsphere.cluster_name
   datacenter_id = data.vsphere_datacenter.instance[0].id
 }
 
 data "vsphere_network" "instance" {
-  count = var.instance && local.vsphere ? 1 : 0
+  count = var.instance ? 1 : 0
 
   name          = var.vsphere.network_name
   datacenter_id = data.vsphere_datacenter.instance[0].id
 }
 
 data "vsphere_virtual_machine" "instance" {
-  count = var.instance && local.vsphere ? 1 : 0
+  count = var.instance ? 1 : 0
 
   name          = var.image
   datacenter_id = data.vsphere_datacenter.instance[0].id
 }
 
 data "vsphere_tag_category" "instance" {
-  count = var.instance && local.vsphere ? 1 : 0
+  count = var.instance ? 1 : 0
 
   name = var.vsphere.tag_category_name
 }
 
 resource "vsphere_tag" "instance" {
-  count = var.instance && local.vsphere ? length(var.tags) : 0
+  count = var.instance ? length(var.tags) : 0
 
   category_id = data.vsphere_tag_category.instance[0].id
   name        = var.tags[count.index]
 }
 
 resource "vsphere_virtual_machine" "instance" {
-  count = var.instance && local.vsphere ? 1 : 0
+  count = var.instance ? 1 : 0
 
   name             = var.name
   resource_pool_id = data.vsphere_compute_cluster.instance[0].resource_pool_id

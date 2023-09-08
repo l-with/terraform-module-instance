@@ -1,35 +1,3 @@
-variable "cloud_provider" {
-  description = "the cloud provider to deploy to"
-  type        = string
-  validation {
-    condition     = contains(["digitalocean", "hetzner", "vsphere"], var.cloud_provider)
-    error_message = "Supported values (in order of descending detail) are digitalocean, hetzner, vsphere."
-  }
-}
-
-variable "hetzner_token" {
-  description = "the Hetzner Cloud API Token (used to query the server types)"
-  type        = string
-  default     = null
-  sensitive   = true
-}
-
-variable "hetzner_preferred_country_locations" {
-  description = "the location that should be preferred for the countries with more than one location"
-  type        = list(map(string))
-  default = [{
-    "DE" : "fsn1",
-    "US" : "hil",
-  }]
-}
-
-variable "digitalocean_token" {
-  description = "the Digital Ocean API token (used to query the server types)"
-  type        = string
-  default     = null
-  sensitive   = true
-}
-
 variable "vsphere" {
   description = "the vsphere names of the datacenter, datastore, cluster and network and optional the name of tag_category and disk and the folder"
   type = object({
@@ -42,31 +10,6 @@ variable "vsphere" {
     tag_category_name = optional(string, null)
   })
   default = null
-}
-
-variable "digitalocean_preferred_country_region_slugs" {
-  description = "the region slug that should be preferred for the countries with more than one slug"
-  type        = list(map(string))
-  default = [{
-    "US" : "nyc3",
-  }]
-}
-
-variable "digitalocean_region_slug_pattern_country_code_mapping" {
-  type = list(map(string))
-  default = [{
-    "nyc1" : "US",
-    "sgp1" : "SG",
-    "lon1" : "GB",
-    "nyc3" : "US",
-    "ams3" : "NL",
-    "fra1" : "DE",
-    "tor1" : "CA",
-    "sfo2" : "US",
-    "blr1" : "IN",
-    "sfo3" : "US",
-    "syd1" : "AU",
-  }]
 }
 
 variable "instance" {

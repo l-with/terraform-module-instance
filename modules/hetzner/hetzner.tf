@@ -1,46 +1,38 @@
-locals {
-  hetzner = (var.cloud_provider == "hetzner")
-}
-
 data "http" "hetzner_server_types" {
-  count = local.hetzner ? 1 : 0
-  url   = "https://api.hetzner.cloud/v1/server_types?per_page=200"
+  url = "https://api.hetzner.cloud/v1/server_types?per_page=200"
   request_headers = {
     Authorization = "Bearer ${var.hetzner_token}"
   }
 }
 
 data "http" "hetzner_locations" {
-  count = local.hetzner ? 1 : 0
-  url   = "https://api.hetzner.cloud/v1/locations"
+  url = "https://api.hetzner.cloud/v1/locations"
   request_headers = {
     Authorization = "Bearer ${var.hetzner_token}"
   }
 }
 
 data "http" "hetzner_datacenters" {
-  count = local.hetzner ? 1 : 0
-  url   = "https://api.hetzner.cloud/v1/datacenters"
+  url = "https://api.hetzner.cloud/v1/datacenters"
   request_headers = {
     Authorization = "Bearer ${var.hetzner_token}"
   }
 }
 
 data "http" "hetzner_images" {
-  count = local.hetzner ? 1 : 0
-  url   = "https://api.hetzner.cloud/v1/images?per_page=200"
+  url = "https://api.hetzner.cloud/v1/images?per_page=200"
   request_headers = {
     Authorization = "Bearer ${var.hetzner_token}"
   }
 }
 
 locals {
-  hetzner_server_types  = !local.hetzner ? null : jsondecode(data.http.hetzner_server_types[0].response_body).server_types
-  hetzner_locations     = !local.hetzner ? [] : jsondecode(data.http.hetzner_locations[0].response_body).locations
-  hetzner_datacenters   = !local.hetzner ? [] : jsondecode(data.http.hetzner_datacenters[0].response_body).datacenters
-  hetzner_server_images = !local.hetzner ? null : jsondecode(data.http.hetzner_images[0].response_body).images
+  hetzner_server_types  = jsondecode(data.http.hetzner_server_types.response_body).server_types
+  hetzner_locations     = jsondecode(data.http.hetzner_locations.response_body).locations
+  hetzner_datacenters   = jsondecode(data.http.hetzner_datacenters.response_body).datacenters
+  hetzner_server_images = jsondecode(data.http.hetzner_images.response_body).images
 
-  hetzner_server_types_without_deprecation = !local.hetzner ? [] : [
+  hetzner_server_types_without_deprecation = [
     for server_type in local.hetzner_server_types : {
       cores       = server_type.cores,
       description = server_type.description,
@@ -50,7 +42,7 @@ locals {
       prices      = server_type.prices
     }
   ]
-  hetzner_server_images_filtered = !local.hetzner ? [] : [
+  hetzner_server_images_filtered = [
     for server_image in local.hetzner_server_images : {
       architecture = server_image.architecture,
       description  = server_image.description,
@@ -69,7 +61,7 @@ locals {
     location if location.country == var.country
   ]
   merged_hetzner_preferred_country_locations = merge(var.hetzner_preferred_country_locations...)
-  hetzner_country_location = !local.hetzner ? [] : length(local.hetzner_country_locations) == 1 ? local.hetzner_country_locations : [
+  hetzner_country_location = length(local.hetzner_country_locations) == 1 ? local.hetzner_country_locations : [
     for location in local.hetzner_country_locations :
     location if location.name == lookup(local.merged_hetzner_preferred_country_locations, var.country, location.name)
   ]
@@ -107,7 +99,7 @@ locals {
 }
 
 resource "hcloud_primary_ip" "instance" {
-  count = var.instance && local.hetzner && var.decoupled_ip ? 1 : 0
+  count = var.instance && var.decoupled_ip ? 1 : 0
 
   name          = var.name
   datacenter    = local.hetzner_datacenter_name
@@ -117,7 +109,7 @@ resource "hcloud_primary_ip" "instance" {
 }
 
 resource "hcloud_server" "instance" {
-  count = var.instance && local.hetzner && !var.decoupled_ip ? 1 : 0
+  count = var.instance && !var.decoupled_ip ? 1 : 0
 
   name        = var.name
   image       = var.image
@@ -132,7 +124,7 @@ resource "hcloud_server" "instance" {
 }
 
 resource "hcloud_server" "instance_with_primary_ip" {
-  count = var.instance && local.hetzner && var.decoupled_ip ? 1 : 0
+  count = var.instance && var.decoupled_ip ? 1 : 0
 
   name        = var.name
   image       = var.image
