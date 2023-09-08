@@ -1,4 +1,4 @@
-# Terraform Modul instance hetzner
+# Terraform Module instance hetzner
 
 Terraform module to provide a sever instance on 
 

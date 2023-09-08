@@ -1,4 +1,4 @@
-# Terraform Modul instance digitalocean
+# Terraform Module instance digitalocean
 
 Terraform module to provide instance on 
 
