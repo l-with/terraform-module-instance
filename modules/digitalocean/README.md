@@ -67,6 +67,7 @@ No modules.
 | <a name="output_digitalocean_droplet_images"></a> [digitalocean\_droplet\_images](#output\_digitalocean\_droplet\_images) | the list of the digitalocean droplet images |
 | <a name="output_digitalocean_droplet_size"></a> [digitalocean\_droplet\_size](#output\_digitalocean\_droplet\_size) | the selected digitalocean droplet size |
 | <a name="output_digitalocean_droplet_sizes"></a> [digitalocean\_droplet\_sizes](#output\_digitalocean\_droplet\_sizes) | the list of the digitalocean droplet sizes |
+| <a name="output_digitalocean_image_map"></a> [digitalocean\_image\_map](#output\_digitalocean\_image\_map) | the mapping of image names to digitalocean image names |
 | <a name="output_digitalocean_region_slug"></a> [digitalocean\_region\_slug](#output\_digitalocean\_region\_slug) | the name of the selected digitalocean region |
 | <a name="output_digitalocean_regions"></a> [digitalocean\_regions](#output\_digitalocean\_regions) | the list of the digitalocean regions |
 | <a name="output_instance"></a> [instance](#output\_instance) | the instance resource |

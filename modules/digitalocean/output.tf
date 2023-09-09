@@ -32,7 +32,7 @@ output "digitalocean_droplet_images" {
 
 output "digitalocean_image_map" {
   description = "the mapping of image names to digitalocean image names"
-  value = var.digitalocean_image_map
+  value       = var.digitalocean_image_map
 }
 
 output "digitalocean_region_slug" {
