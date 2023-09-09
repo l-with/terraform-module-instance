@@ -9,6 +9,6 @@ output "instance_ip_address" {
 }
 
 output "instance_decoupled_ip_address" {
-  description = "the decoupled ip address of the instance"
-  value       = null
+  description = "the decoupled ip address of the instance (default is instance_ip_address)"
+  value       = !var.instance ? null : vsphere_virtual_machine.instance[0]
 }

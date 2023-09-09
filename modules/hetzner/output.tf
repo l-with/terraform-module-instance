@@ -42,10 +42,12 @@ output "instance" {
 
 output "instance_ip_address" {
   description = "the ip address of the instance"
-  value       = var.instance && !var.decoupled_ip ? hcloud_server.instance[0].ipv4_address : null
+  value = !var.instance ? null : (
+    var.decoupled_ip ? hcloud_primary_ip.instance[0].ip_address : hcloud_server.instance[0].ipv4_address
+  )
 }
 
 output "instance_decoupled_ip_address" {
-  description = "the decoupled ip address of the instance"
+  description = "the decoupled ip address of the instance (default is instance_ip_address)"
   value       = var.instance && var.decoupled_ip ? hcloud_primary_ip.instance[0].ip_address : null
 }
