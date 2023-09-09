@@ -69,6 +69,6 @@ No modules.
 | <a name="output_digitalocean_region_slug"></a> [digitalocean\_region\_slug](#output\_digitalocean\_region\_slug) | the name of the selected digitalocean region |
 | <a name="output_digitalocean_regions"></a> [digitalocean\_regions](#output\_digitalocean\_regions) | the list of the digitalocean regions |
 | <a name="output_instance"></a> [instance](#output\_instance) | the instance resource |
-| <a name="output_instance_decoupled_ip_address"></a> [instance\_decoupled\_ip\_address](#output\_instance\_decoupled\_ip\_address) | the decoupled ip address of the instance |
+| <a name="output_instance_decoupled_ip_address"></a> [instance\_decoupled\_ip\_address](#output\_instance\_decoupled\_ip\_address) | the decoupled ip address of the instance (default is instance\_ip\_address) |
 | <a name="output_instance_ip_address"></a> [instance\_ip\_address](#output\_instance\_ip\_address) | the ip address of the instance |
 <!-- END_TF_DOCS -->

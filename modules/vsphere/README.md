@@ -64,6 +64,6 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_instance"></a> [instance](#output\_instance) | the instance resource |
-| <a name="output_instance_decoupled_ip_address"></a> [instance\_decoupled\_ip\_address](#output\_instance\_decoupled\_ip\_address) | the decoupled ip address of the instance |
+| <a name="output_instance_decoupled_ip_address"></a> [instance\_decoupled\_ip\_address](#output\_instance\_decoupled\_ip\_address) | the decoupled ip address of the instance (default is instance\_ip\_address) |
 | <a name="output_instance_ip_address"></a> [instance\_ip\_address](#output\_instance\_ip\_address) | the ip address of the instance |
 <!-- END_TF_DOCS -->
