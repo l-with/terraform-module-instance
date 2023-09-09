@@ -68,7 +68,9 @@ No modules.
 | <a name="output_digitalocean_droplet_size"></a> [digitalocean\_droplet\_size](#output\_digitalocean\_droplet\_size) | the selected digitalocean droplet size |
 | <a name="output_digitalocean_droplet_sizes"></a> [digitalocean\_droplet\_sizes](#output\_digitalocean\_droplet\_sizes) | the list of the digitalocean droplet sizes |
 | <a name="output_digitalocean_image_map"></a> [digitalocean\_image\_map](#output\_digitalocean\_image\_map) | the mapping of image names to digitalocean image names |
+| <a name="output_digitalocean_preferred_country_region_slugs"></a> [digitalocean\_preferred\_country\_region\_slugs](#output\_digitalocean\_preferred\_country\_region\_slugs) | the region slug that should be preferred for the countries with more than one slug |
 | <a name="output_digitalocean_region_slug"></a> [digitalocean\_region\_slug](#output\_digitalocean\_region\_slug) | the name of the selected digitalocean region |
+| <a name="output_digitalocean_region_slug_pattern_country_code_mapping"></a> [digitalocean\_region\_slug\_pattern\_country\_code\_mapping](#output\_digitalocean\_region\_slug\_pattern\_country\_code\_mapping) | the mapping of region slug to country |
 | <a name="output_digitalocean_regions"></a> [digitalocean\_regions](#output\_digitalocean\_regions) | the list of the digitalocean regions |
 | <a name="output_instance"></a> [instance](#output\_instance) | the instance resource |
 | <a name="output_instance_decoupled_ip_address"></a> [instance\_decoupled\_ip\_address](#output\_instance\_decoupled\_ip\_address) | the decoupled ip address of the instance (default is instance\_ip\_address) |

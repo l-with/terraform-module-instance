@@ -66,6 +66,7 @@ No modules.
 | <a name="output_hetzner_datacenters"></a> [hetzner\_datacenters](#output\_hetzner\_datacenters) | the list of the hetzner datacenters |
 | <a name="output_hetzner_location_name"></a> [hetzner\_location\_name](#output\_hetzner\_location\_name) | the name of the selected hetzner location |
 | <a name="output_hetzner_locations"></a> [hetzner\_locations](#output\_hetzner\_locations) | the list of the hetzner locations |
+| <a name="output_hetzner_preferred_country_locations"></a> [hetzner\_preferred\_country\_locations](#output\_hetzner\_preferred\_country\_locations) | the location that should be preferred for the countries with more than one location |
 | <a name="output_hetzner_server_images"></a> [hetzner\_server\_images](#output\_hetzner\_server\_images) | the list of the hetzner server images |
 | <a name="output_hetzner_server_type"></a> [hetzner\_server\_type](#output\_hetzner\_server\_type) | the selected hetzner server type |
 | <a name="output_hetzner_server_types"></a> [hetzner\_server\_types](#output\_hetzner\_server\_types) | the list of the hetzner server types |
