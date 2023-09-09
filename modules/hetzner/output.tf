@@ -8,6 +8,11 @@ output "hetzner_locations" {
   value       = local.hetzner_locations
 }
 
+output "hetzner_preferred_country_locations" {
+  description = "the location that should be preferred for the countries with more than one location"
+  value       = var.hetzner_preferred_country_locations
+}
+
 output "hetzner_datacenters" {
   description = "the list of the hetzner datacenters"
   value       = local.hetzner_datacenters

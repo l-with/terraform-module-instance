@@ -40,6 +40,16 @@ output "digitalocean_region_slug" {
   value       = local.digitalocean_region_slug
 }
 
+output "digitalocean_preferred_country_region_slugs" {
+  description = "the region slug that should be preferred for the countries with more than one slug"
+  value       = var.digitalocean_preferred_country_region_slugs
+}
+
+output "digitalocean_region_slug_pattern_country_code_mapping" {
+  description = "the mapping of region slug to country"
+  value       = var.digitalocean_region_slug_pattern_country_code_mapping
+}
+
 output "digitalocean_droplet_size" {
   description = "the selected digitalocean droplet size"
   value       = local.digitalocean_droplet_size
