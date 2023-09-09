@@ -30,6 +30,11 @@ output "digitalocean_droplet_images" {
   value       = local.digitalocean_droplet_images_filtered
 }
 
+output "digitalocean_image_map" {
+  description = "the mapping of image names to digitalocean image names"
+  value = var.digitalocean_image_map
+}
+
 output "digitalocean_region_slug" {
   description = "the name of the selected digitalocean region"
   value       = local.digitalocean_region_slug
