@@ -19,7 +19,7 @@ variable "instance" {
 }
 
 variable "decoupled_ip" {
-  description = "if the instance should be created with a decoupled ip"
+  description = "if the instance should be created with a decoupled ip (ignored for vsphere)"
   type        = bool
   default     = false
 }

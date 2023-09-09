@@ -71,19 +71,6 @@ locals {
   digitalocean_droplet_size = length(local.digitalocean_sorted_price_hourly_slug) == 0 ? null : split("#", local.digitalocean_sorted_price_hourly_slug[0])[1]
 }
 
-resource "digitalocean_reserved_ip" "instance" {
-  count = var.instance && var.decoupled_ip ? 1 : 0
-
-  region = local.digitalocean_region_slug
-}
-
-resource "digitalocean_reserved_ip_assignment" "instance" {
-  count = var.instance && var.decoupled_ip ? 1 : 0
-
-  droplet_id = digitalocean_droplet.instance[0].id
-  ip_address = digitalocean_reserved_ip.instance[0].ip_address
-}
-
 resource "digitalocean_tag" "instance" {
   count = var.instance ? length(var.tags) : 0
 
