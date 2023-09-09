@@ -36,7 +36,7 @@ locals {
     }) if region.available
   ]
   digitalocean_image_map = merge(var.digitalocean_image_map...)
-  digitalocean_image = !contains(keys(local.digitalocean_image_map), var.image) ? var.image : local.digitalocean_image_map[var.image]
+  digitalocean_image     = !contains(keys(local.digitalocean_image_map), var.image) ? var.image : local.digitalocean_image_map[var.image]
   digitalocean_droplet_images_filtered = [
     for droplet_image in local.digitalocean_droplet_images : {
       description  = droplet_image.description,
