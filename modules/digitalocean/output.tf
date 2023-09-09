@@ -5,12 +5,12 @@ output "instance" {
 
 output "instance_ip_address" {
   description = "the ip address of the instance"
-  value = !var.instance ? null : digitalocean_droplet.instance[0].ipv4_address
+  value       = !var.instance ? null : digitalocean_droplet.instance[0].ipv4_address
 }
 
 output "instance_decoupled_ip_address" {
   description = "the decoupled ip address of the instance (default is instance_ip_address)"
-  value = !var.instance ? null : digitalocean_droplet.instance[0].ipv4_address
+  value       = !var.instance ? null : digitalocean_droplet.instance[0].ipv4_address
 }
 
 output "digitalocean_droplet_sizes" {

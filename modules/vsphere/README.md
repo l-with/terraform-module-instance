@@ -49,7 +49,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_assign_tags"></a> [assign\_tags](#input\_assign\_tags) | the tags to assign to the instance | `list(any)` | `[]` | no |
 | <a name="input_country"></a> [country](#input\_country) | the [ISO 3166 country code](https://www.iso.org/obp/ui/#search) (Alpha-2) where the instance should be created | `any` | `null` | no |
-| <a name="input_decoupled_ip"></a> [decoupled\_ip](#input\_decoupled\_ip) | if the instance should be created with a decoupled ip | `bool` | `false` | no |
+| <a name="input_decoupled_ip"></a> [decoupled\_ip](#input\_decoupled\_ip) | if the instance should be created with a decoupled ip (ignored for vsphere) | `bool` | `false` | no |
 | <a name="input_image"></a> [image](#input\_image) | the image the instance should be created from | `string` | n/a | yes |
 | <a name="input_instance"></a> [instance](#input\_instance) | if the instance should be created | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | the name of the instance | `string` | n/a | yes |
@@ -66,4 +66,6 @@ No modules.
 | <a name="output_instance"></a> [instance](#output\_instance) | the instance resource |
 | <a name="output_instance_decoupled_ip_address"></a> [instance\_decoupled\_ip\_address](#output\_instance\_decoupled\_ip\_address) | the decoupled ip address of the instance (default is instance\_ip\_address) |
 | <a name="output_instance_ip_address"></a> [instance\_ip\_address](#output\_instance\_ip\_address) | the ip address of the instance |
+| <a name="output_vsphere_disk_name"></a> [vsphere\_disk\_name](#output\_vsphere\_disk\_name) | n/a |
+| <a name="output_vsphere_folder"></a> [vsphere\_folder](#output\_vsphere\_folder) | n/a |
 <!-- END_TF_DOCS -->
