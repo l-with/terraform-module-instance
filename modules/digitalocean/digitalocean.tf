@@ -35,6 +35,8 @@ locals {
       country = lookup(local.digital_ocean_region_slug_pattern_country_code_mapping, region.slug, null)
     }) if region.available
   ]
+  digitalocean_image_map = merge(var.digitalocean_image_map...)
+  digitalocean_image = !contains(keys(local.digitalocean_image_map), var.image) ? var.image : local.digitalocean_image_map[var.image]
   digitalocean_droplet_images_filtered = [
     for droplet_image in local.digitalocean_droplet_images : {
       description  = droplet_image.description,
@@ -92,7 +94,7 @@ resource "digitalocean_droplet" "instance" {
   count = var.instance ? 1 : 0
 
   name      = var.name
-  image     = var.image
+  image     = local.digitalocean_image
   size      = local.digitalocean_droplet_size
   region    = local.digitalocean_region_slug
   ssh_keys  = var.ssh_keys
