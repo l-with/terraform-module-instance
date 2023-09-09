@@ -9,8 +9,8 @@ variable "hetzner_preferred_country_locations" {
   description = "the location that should be preferred for the countries with more than one location"
   type        = list(map(string))
   default = [{
-    "DE" : "fsn1",
-    "US" : "hil",
+    "DE" = "fsn1",
+    "US" = "hil",
   }]
 }
 
