@@ -14,19 +14,40 @@ variable "digitalocean_preferred_country_region_slugs" {
 }
 
 variable "digitalocean_region_slug_pattern_country_code_mapping" {
-  type = list(map(string))
+  description = "the mapping of region slug to country"
+  type        = list(map(string))
   default = [{
-    "nyc1" : "US",
-    "sgp1" : "SG",
-    "lon1" : "GB",
-    "nyc3" : "US",
-    "ams3" : "NL",
-    "fra1" : "DE",
-    "tor1" : "CA",
-    "sfo2" : "US",
-    "blr1" : "IN",
-    "sfo3" : "US",
-    "syd1" : "AU",
+    "nyc1" = "US",
+    "sgp1" = "SG",
+    "lon1" = "GB",
+    "nyc3" = "US",
+    "ams3" = "NL",
+    "fra1" = "DE",
+    "tor1" = "CA",
+    "sfo2" = "US",
+    "blr1" = "IN",
+    "sfo3" = "US",
+    "syd1" = "AU",
+  }]
+}
+
+variable "digitalocean_image_map" {
+  description = "the mapping of image names to digitalocean image names"
+  type        = list(map(string))
+  default = [{
+    "alma-8"          = "almalinux-8-x64",
+    "alma-9"          = "almalinux-9-x64",
+    "centos-7"        = "centos-7-x64",
+    "centos-stream-8" = "centos-stream-8-x64",
+    "centos-stream-9" = "centos-stream-9-x64",
+    "fedora-37"       = "fedora-37-x64",
+    "debian-10"       = "debian-10-x64",
+    "debian-11"       = "debian-11-x64",
+    "debian-12"       = "debian-12-x64",
+    "rocky-8"         = "rockylinux-8-x64",
+    "rocky-9"         = "rockylinux-9-x64",
+    "ubuntu-20-04"    = "ubuntu-20-04-x64",
+    "ubuntu-22-04"    = "ubuntu-22-04-x64",
   }]
 }
 
