@@ -73,8 +73,9 @@ resource "vsphere_virtual_machine" "instance" {
   }
   vapp {
     properties = {
-      hostname  = var.name
-      user-data = var.user_data
+      hostname    = var.name
+      user-data   = var.user_data
+      public-keys = join("\n", var.ssh_keys)
     }
   }
 }
