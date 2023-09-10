@@ -44,15 +44,17 @@ variable "type" {
 variable "name" {
   description = "the name of the instance"
   type        = string
+  default     = null
 }
 
 variable "image" {
   description = "the image the instance should be created from"
   type        = string
+  default     = null
 }
 
 variable "user_data" {
-  description = "the cloud-Init user data to use during instance creation"
+  description = "the cloud-Init user data to use during instance creation (size limit 32768)"
   type        = string
   default     = null
   sensitive   = true
@@ -74,4 +76,16 @@ variable "ssh_keys" {
   description = "the SSH key IDs or names which should be injected into the server at creation time"
   type        = list(string)
   default     = []
+}
+
+variable "ipv4_address_var" {
+  description = "if the variable ipv4_address is set (for decoupling count)"
+  type        = bool
+  default     = false
+}
+
+variable "ipv4_address" {
+  description = "the ipv4_address of a hcloud_primary_ip (needs decoupled_ip)"
+  type        = string
+  default     = null
 }
