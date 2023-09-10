@@ -50,7 +50,7 @@ variable "image" {
 }
 
 variable "user_data" {
-  description = "the cloud-Init user data to use during instance creation"
+  description = "the cloud-Init user data to use during instance creation (size limit 65535)"
   type        = string
   default     = null
   sensitive   = true
