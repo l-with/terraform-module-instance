@@ -1,3 +1,12 @@
+variable "digitalocean_droplet_agent" {
+  description = <<EOT
+    value for [droplet_agent](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet#droplet_agent)
+    (if the DigitalOcean agent used for providing access to the Droplet web console in the control panel should be installed)
+  EOT
+  type        = bool
+  default     = false
+}
+
 variable "digitalocean_token" {
   description = "the Digital Ocean API token (used to query the server types)"
   type        = string
@@ -48,6 +57,8 @@ variable "digitalocean_image_map" {
     "rocky-9"         = "rockylinux-9-x64",
     "ubuntu-20.04"    = "ubuntu-20-04-x64",
     "ubuntu-22.04"    = "ubuntu-22-04-x64",
+    "ubuntu-20-04"    = "ubuntu-20-04-x64",
+    "ubuntu-22-04"    = "ubuntu-22-04-x64",
   }]
 }
 
@@ -89,7 +100,10 @@ variable "image" {
 }
 
 variable "user_data" {
-  description = "the cloud-Init user data to use during instance creation"
+  description = <<EOT
+    the cloud-Init user data to use during instance creation
+    NOTE: digitalocean does not support base64 encoded user_data (and as a consequence also not gzipped and base64 encoded user_data)
+  EOT
   type        = string
   default     = null
   sensitive   = true
