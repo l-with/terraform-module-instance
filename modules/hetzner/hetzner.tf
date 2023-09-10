@@ -98,8 +98,14 @@ locals {
   hetzner_server_type = length(local.hetzner_sorted_price_hourly_name) == 0 ? "" : split("#", local.hetzner_sorted_price_hourly_name[0])[1]
 }
 
+data "hcloud_primary_ip" "instance" {
+  count = var.ipv4_address_var ? 1 : 0
+
+  ip_address = var.ipv4_address
+}
+
 resource "hcloud_primary_ip" "instance" {
-  count = var.instance && var.decoupled_ip ? 1 : 0
+  count = var.instance && var.decoupled_ip && !var.ipv4_address_var ? 1 : 0
 
   name          = var.name
   datacenter    = local.hetzner_datacenter_name
@@ -138,6 +144,6 @@ resource "hcloud_server" "instance_with_primary_ip" {
   }
 
   public_net {
-    ipv4 = hcloud_primary_ip.instance[0].id
+    ipv4 = var.ipv4_address_var ? data.hcloud_primary_ip.instance[0].id : hcloud_primary_ip.instance[0].id
   }
 }
