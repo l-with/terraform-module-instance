@@ -51,9 +51,9 @@ No modules.
 | <a name="input_digitalocean_preferred_country_region_slugs"></a> [digitalocean\_preferred\_country\_region\_slugs](#input\_digitalocean\_preferred\_country\_region\_slugs) | the region slug that should be preferred for the countries with more than one slug | `list(map(string))` | <pre>[<br>  {<br>    "US": "nyc3"<br>  }<br>]</pre> | no |
 | <a name="input_digitalocean_region_slug_pattern_country_code_mapping"></a> [digitalocean\_region\_slug\_pattern\_country\_code\_mapping](#input\_digitalocean\_region\_slug\_pattern\_country\_code\_mapping) | the mapping of region slug to country | `list(map(string))` | <pre>[<br>  {<br>    "ams3": "NL",<br>    "blr1": "IN",<br>    "fra1": "DE",<br>    "lon1": "GB",<br>    "nyc1": "US",<br>    "nyc3": "US",<br>    "sfo2": "US",<br>    "sfo3": "US",<br>    "sgp1": "SG",<br>    "syd1": "AU",<br>    "tor1": "CA"<br>  }<br>]</pre> | no |
 | <a name="input_digitalocean_token"></a> [digitalocean\_token](#input\_digitalocean\_token) | the Digital Ocean API token (used to query the server types) | `string` | `null` | no |
-| <a name="input_image"></a> [image](#input\_image) | the image the instance should be created from | `string` | n/a | yes |
+| <a name="input_image"></a> [image](#input\_image) | the image the instance should be created from | `string` | `null` | no |
 | <a name="input_instance"></a> [instance](#input\_instance) | if the instance should be created | `bool` | `true` | no |
-| <a name="input_name"></a> [name](#input\_name) | the name of the instance | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | the name of the instance | `string` | `null` | no |
 | <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | the SSH key IDs or names which should be injected into the server at creation time | `list(string)` | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | the tags to create and assign to the instance | `list(string)` | `[]` | no |
 | <a name="input_type"></a> [type](#input\_type) | the type of the instance (will be transformed matching the possiblities of the cloud\_provider) | <pre>object({<br>    vcpus : number,<br>    ram : number,<br>    disk : number,<br>  })</pre> | `null` | no |
