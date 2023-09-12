@@ -92,11 +92,13 @@ variable "type" {
 variable "name" {
   description = "the name of the instance"
   type        = string
+  default     = null
 }
 
 variable "image" {
   description = "the image the instance should be created from"
   type        = string
+  default     = null
 }
 
 variable "user_data" {
