@@ -45,13 +45,6 @@ resource "vsphere_tag" "instance" {
   name        = var.tags[count.index]
 }
 
-data "vsphere_tag" "instance" {
-  count = var.instance ? length(var.assign_tags) : 0
-
-  category_id = data.vsphere_tag_category.instance[0].id
-  name        = var.assign_tags[count.index]
-}
-
 resource "vsphere_virtual_machine" "instance" {
   count = var.instance ? 1 : 0
 
@@ -64,7 +57,7 @@ resource "vsphere_virtual_machine" "instance" {
   memory           = 1024 * var.type.ram
   tags = concat(
     vsphere_tag.instance[*].id,
-    data.vsphere_tag.instance[*].id,
+    var.assign_tag_ids,
   )
   network_interface {
     network_id = data.vsphere_network.instance[0].id

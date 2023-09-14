@@ -62,8 +62,8 @@ variable "user_data" {
   sensitive   = true
 }
 
-variable "assign_tags" {
-  description = "the tag names to assign to the instance"
+variable "assign_tag_ids" {
+  description = "the tag ids to assign to the instance"
   type        = list(string)
   default     = []
 }
