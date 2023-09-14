@@ -69,6 +69,7 @@ resource "vsphere_virtual_machine" "instance" {
   network_interface {
     network_id = data.vsphere_network.instance[0].id
   }
+  wait_for_guest_net_timeout = var.vsphere_wait_for_guest_net_timeout
   disk {
     label            = var.vsphere.disk_name
     size             = var.type.disk
@@ -78,14 +79,14 @@ resource "vsphere_virtual_machine" "instance" {
   clone {
     template_uuid = data.vsphere_virtual_machine.instance[0].id
     dynamic "customize" {
-      for_each = var.ipv4_address_var ? [1] : [0]
+      for_each = var.ipv4_address_var ? [1] : []
       content {
         linux_options {
           host_name = var.name
           domain    = ""
         }
         dynamic "network_interface" {
-          for_each = var.ipv4_address_var ? [1] : [0]
+          for_each = var.ipv4_address_var ? [1] : []
           content {
             ipv4_address = var.ipv4_address
             ipv4_netmask = 24

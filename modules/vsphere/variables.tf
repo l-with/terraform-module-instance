@@ -12,6 +12,12 @@ variable "vsphere" {
   default = null
 }
 
+variable "vsphere_wait_for_guest_net_timeout" {
+  description = "the amount of time, in minutes, to wait for an available guest IP address on the virtual machine"
+  type        = number
+  default     = 0
+}
+
 variable "instance" {
   description = "if the instance should be created"
   type        = bool
