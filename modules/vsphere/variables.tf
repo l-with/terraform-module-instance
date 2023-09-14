@@ -25,7 +25,7 @@ variable "decoupled_ip" {
 }
 
 variable "country" {
-  description = "the [ISO 3166 country code](https://www.iso.org/obp/ui/#search) (Alpha-2) where the instance should be created"
+  description = "the [ISO 3166 country code](https://www.iso.org/obp/ui/#search) (Alpha-2) where the instance should be created (ignored for vsphere)"
   default     = null
 }
 
@@ -50,15 +50,15 @@ variable "image" {
 }
 
 variable "user_data" {
-  description = "the cloud-Init user data to use during instance creation (size limit 65535)"
+  description = "the cloud-Init user data to use during instance creation (base64 encoded, size limit 65535)"
   type        = string
   default     = null
   sensitive   = true
 }
 
 variable "assign_tags" {
-  description = "the tags to assign to the instance"
-  type        = list(any)
+  description = "the tag names to assign to the instance"
+  type        = list(string)
   default     = []
 }
 
