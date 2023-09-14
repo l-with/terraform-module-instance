@@ -40,7 +40,6 @@ No modules.
 | [vsphere_datacenter.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/datacenter) | data source |
 | [vsphere_datastore.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/datastore) | data source |
 | [vsphere_network.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/network) | data source |
-| [vsphere_tag.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/tag) | data source |
 | [vsphere_tag_category.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/tag_category) | data source |
 | [vsphere_virtual_machine.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/virtual_machine) | data source |
 
@@ -48,7 +47,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_assign_tags"></a> [assign\_tags](#input\_assign\_tags) | the tag names to assign to the instance | `list(string)` | `[]` | no |
+| <a name="input_assign_tag_ids"></a> [assign\_tag\_ids](#input\_assign\_tag\_ids) | the tag ids to assign to the instance | `list(string)` | `[]` | no |
 | <a name="input_country"></a> [country](#input\_country) | the [ISO 3166 country code](https://www.iso.org/obp/ui/#search) (Alpha-2) where the instance should be created (ignored for vsphere) | `any` | `null` | no |
 | <a name="input_decoupled_ip"></a> [decoupled\_ip](#input\_decoupled\_ip) | if the instance should be created with a decoupled ip (ignored for vsphere) | `bool` | `false` | no |
 | <a name="input_image"></a> [image](#input\_image) | the image the instance should be created from | `string` | n/a | yes |
