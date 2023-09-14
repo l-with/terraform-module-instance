@@ -77,6 +77,22 @@ resource "vsphere_virtual_machine" "instance" {
   }
   clone {
     template_uuid = data.vsphere_virtual_machine.instance[0].id
+    dynamic "customize" {
+      for_each = var.ipv4_address_var ? [1] : [0]
+      content {
+        linux_options {
+          host_name = var.name
+          domain    = ""
+        }
+        dynamic "network_interface" {
+          for_each = var.ipv4_address_var ? [1] : [0]
+          content {
+            ipv4_address = var.ipv4_address
+            ipv4_netmask = 24
+          }
+        }
+      }
+    }
   }
   cdrom {
     client_device = true

@@ -73,3 +73,15 @@ variable "ssh_keys" {
   type        = list(string)
   default     = []
 }
+
+variable "ipv4_address_var" {
+  description = "if the variable ipv4_address is set (for decoupling count)"
+  type        = bool
+  default     = false
+}
+
+variable "ipv4_address" {
+  description = "the static ipv4_address (needs decoupled_ip)"
+  type        = string
+  default     = null
+}
