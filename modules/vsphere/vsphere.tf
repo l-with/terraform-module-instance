@@ -33,7 +33,7 @@ data "vsphere_virtual_machine" "instance" {
 }
 
 data "vsphere_tag_category" "instance" {
-  count = var.instance ? 1 : 0
+  count = (var.instance && var.vsphere.tag_category_name != null) ? 1 : 0
 
   name = var.vsphere.tag_category_name
 }
@@ -55,6 +55,7 @@ resource "vsphere_virtual_machine" "instance" {
   folder           = var.vsphere.folder
   num_cpus         = var.type.vcpus
   memory           = 1024 * var.type.ram
+  firmware         = "efi"
   tags = concat(
     vsphere_tag.instance[*].id,
     var.assign_tag_ids,
@@ -95,7 +96,7 @@ resource "vsphere_virtual_machine" "instance" {
     properties = {
       hostname    = var.name
       user-data   = var.user_data
-      public-keys = join("\n", concat([""], var.ssh_keys))
+      public-keys = join("\n", var.ssh_keys)
     }
   }
 }
