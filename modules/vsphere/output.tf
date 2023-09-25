@@ -5,12 +5,12 @@ output "instance" {
 
 output "instance_ip_address" {
   description = "the ip address of the instance"
-  value       = !var.instance ? null : vsphere_virtual_machine.instance[0]
+  value       = !var.instance ? null : vsphere_virtual_machine.instance[0].default_ip_address
 }
 
 output "instance_decoupled_ip_address" {
   description = "the decoupled ip address of the instance (default is instance_ip_address)"
-  value       = !var.instance ? null : vsphere_virtual_machine.instance[0]
+  value       = !var.instance ? null : vsphere_virtual_machine.instance[0].default_ip_address
 }
 
 output "vsphere_folder" {
