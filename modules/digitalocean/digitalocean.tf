@@ -69,6 +69,7 @@ locals {
     "${size.price_hourly}#${size.slug}"
   ])
   digitalocean_droplet_size = length(local.digitalocean_sorted_price_hourly_slug) == 0 ? null : split("#", local.digitalocean_sorted_price_hourly_slug[0])[1]
+  digitalocean_droplet_name = var.name == null ? "instance-droplet" : var.name
 }
 
 resource "digitalocean_tag" "instance" {
@@ -80,7 +81,7 @@ resource "digitalocean_tag" "instance" {
 resource "digitalocean_droplet" "instance" {
   count = var.instance ? 1 : 0
 
-  name      = var.name
+  name      = local.digitalocean_droplet_name
   image     = local.digitalocean_image
   size      = local.digitalocean_droplet_size
   region    = local.digitalocean_region_slug
