@@ -1,3 +1,6 @@
+locals {
+  vsphere_wait_for_guest_net_timeout = var.ipv4_address_var ? 0 : var.vsphere_wait_for_guest_net_timeout
+}
 data "vsphere_datacenter" "instance" {
   count = var.instance ? 1 : 0
 
@@ -63,7 +66,7 @@ resource "vsphere_virtual_machine" "instance" {
   network_interface {
     network_id = data.vsphere_network.instance[0].id
   }
-  wait_for_guest_net_timeout = var.vsphere_wait_for_guest_net_timeout
+  wait_for_guest_net_timeout = local.vsphere_wait_for_guest_net_timeout
   disk {
     label            = var.vsphere.disk_name
     size             = var.type.disk

@@ -13,9 +13,12 @@ variable "vsphere" {
 }
 
 variable "vsphere_wait_for_guest_net_timeout" {
-  description = "the amount of time, in minutes, to wait for an available guest IP address on the virtual machine"
+  description = <<EOF
+    the amount of time, in minutes, to wait for an available guest IP address on the virtual machine
+    - default (coded in terraform) depends on ipv4_address_var: 0 if true, 5 else
+  EOF
   type        = number
-  default     = 0
+  default     = 5
 }
 
 variable "instance" {
