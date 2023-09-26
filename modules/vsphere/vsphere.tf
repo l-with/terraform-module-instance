@@ -51,6 +51,7 @@ resource "vsphere_tag" "instance" {
 resource "vsphere_virtual_machine" "instance" {
   count = var.instance ? 1 : 0
 
+  replace_trigger  = var.user_data
   name             = var.name
   resource_pool_id = data.vsphere_compute_cluster.instance[0].resource_pool_id
   datastore_id     = data.vsphere_datastore.instance[0].id
@@ -99,7 +100,7 @@ resource "vsphere_virtual_machine" "instance" {
     properties = {
       hostname    = var.name
       user-data   = var.user_data
-      public-keys = join("\n", var.ssh_keys)
+      public-keys = length(var.ssh_keys) == 0 ? null : join("\n", var.ssh_keys)
     }
   }
 }
