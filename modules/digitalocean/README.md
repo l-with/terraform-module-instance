@@ -27,7 +27,9 @@ The motivation is to make switching between platforms as easy as possible.
 
 #### Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_digitalocean_droplet_size"></a> [digitalocean\_droplet\_size](#module\_digitalocean\_droplet\_size) | rhythmictech/errorcheck/terraform | ~> 1.3.0 |
 
 #### Resources
 
