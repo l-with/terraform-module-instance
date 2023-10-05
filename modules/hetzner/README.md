@@ -27,7 +27,9 @@ The motivation is to make switching between platforms as easy as possible.
 
 #### Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_hetzner_server_type"></a> [hetzner\_server\_type](#module\_hetzner\_server\_type) | rhythmictech/errorcheck/terraform | ~> 1.3.0 |
 
 #### Resources
 
