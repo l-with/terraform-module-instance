@@ -72,6 +72,15 @@ locals {
   digitalocean_droplet_name = var.name == null ? "instance-droplet" : var.name
 }
 
+module "digitalocean_droplet_size" {
+  source  = "rhythmictech/errorcheck/terraform"
+  version = "~> 1.3.0"
+
+  use_jq        = true
+  assert        = length(local.digitalocean_sorted_price_hourly_slug) > 0
+  error_message = "error: no matching droplet size available"
+}
+
 resource "digitalocean_tag" "instance" {
   count = var.instance ? length(var.tags) : 0
 
