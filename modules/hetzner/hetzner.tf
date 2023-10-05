@@ -95,7 +95,7 @@ locals {
     for sever_type in local.hetzner_server_types_location_prices :
     "${sever_type.prices.price_hourly.net}#${sever_type.name}"
   ])
-  hetzner_server_type = length(local.hetzner_sorted_price_hourly_name) == 0 ? "" : split("#", local.hetzner_sorted_price_hourly_name[0])[1]
+  hetzner_server_type = length(local.hetzner_sorted_price_hourly_name) == 0 ? null : split("#", local.hetzner_sorted_price_hourly_name[0])[1]
 }
 
 module "hetzner_server_type" {
