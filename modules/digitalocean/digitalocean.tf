@@ -26,7 +26,7 @@ locals {
 
   digitalocean_droplet_sizes_filtered = [
     for size in local.digitalocean_droplet_sizes :
-    size if size.vcpus >= var.type.vcpus && size.memory >= var.type.ram && size.disk >= var.type.disk
+    size if size.vcpus >= var.type.vcpus && size.memory >= (var.type.ram * 1024) && size.disk >= var.type.disk
   ]
   digital_ocean_region_slug_pattern_country_code_mapping = merge(var.digitalocean_region_slug_pattern_country_code_mapping...)
   digitalocean_regions = [
