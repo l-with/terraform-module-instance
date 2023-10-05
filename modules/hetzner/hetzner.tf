@@ -98,6 +98,15 @@ locals {
   hetzner_server_type = length(local.hetzner_sorted_price_hourly_name) == 0 ? "" : split("#", local.hetzner_sorted_price_hourly_name[0])[1]
 }
 
+module "hetzner_server_type" {
+  source  = "rhythmictech/errorcheck/terraform"
+  version = "~> 1.3.0"
+
+  use_jq        = true
+  assert        = length(local.hetzner_sorted_price_hourly_name) > 0
+  error_message = "error: no matching server type available"
+}
+
 data "hcloud_primary_ip" "instance" {
   count = var.ipv4_address_var ? 1 : 0
 
