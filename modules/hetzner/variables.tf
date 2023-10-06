@@ -89,3 +89,10 @@ variable "ipv4_address" {
   type        = string
   default     = null
 }
+
+variable "networks" {
+  type = list(object({
+    network_id = number,
+  }))
+  default = []
+}

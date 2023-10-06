@@ -124,7 +124,7 @@ resource "hcloud_primary_ip" "instance" {
 }
 
 resource "hcloud_server" "instance" {
-  count = var.instance && !var.decoupled_ip ? 1 : 0
+  count = var.instance ? 1 : 0
 
   name        = var.name
   image       = var.image
@@ -136,23 +136,10 @@ resource "hcloud_server" "instance" {
     for tag in var.tags :
     tag => "true"
   }
-}
-
-resource "hcloud_server" "instance_with_primary_ip" {
-  count = var.instance && var.decoupled_ip ? 1 : 0
-
-  name        = var.name
-  image       = var.image
-  server_type = local.hetzner_server_type
-  datacenter  = local.hetzner_datacenter_name
-  ssh_keys    = var.ssh_keys
-  user_data   = var.user_data
-  labels = {
-    for tag in var.tags :
-    tag => "true"
-  }
-
-  public_net {
-    ipv4 = var.ipv4_address_var ? data.hcloud_primary_ip.instance[0].id : hcloud_primary_ip.instance[0].id
+  dynamic "public_net" {
+    for_each = var.decoupled_ip ? [1] : []
+    content {
+      ipv4 = var.ipv4_address_var ? data.hcloud_primary_ip.instance[0].id : hcloud_primary_ip.instance[0].id
+    }
   }
 }
