@@ -45,7 +45,8 @@ data "vsphere_tag_category" "instance" {
 data "vsphere_resource_pool" "instance" {
   count = (var.instance && var.vsphere.resource_pool_name != null) ? 1 : 0
 
-  name = var.vsphere.resource_pool_name
+  name          = var.vsphere.resource_pool_name
+  datacenter_id = data.vsphere_datacenter.instance[0].id
 }
 
 resource "vsphere_tag" "instance" {
