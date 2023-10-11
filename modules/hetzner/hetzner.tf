@@ -121,6 +121,10 @@ resource "hcloud_primary_ip" "instance" {
   assignee_type = "server"
   auto_delete   = false
   type          = "ipv4"
+  labels = {
+    for tag in var.tags :
+    tag => "true"
+  }
 }
 
 resource "hcloud_server" "instance" {
@@ -140,6 +144,13 @@ resource "hcloud_server" "instance" {
     for_each = var.decoupled_ip ? [1] : []
     content {
       ipv4 = var.ipv4_address_var ? data.hcloud_primary_ip.instance[0].id : hcloud_primary_ip.instance[0].id
+    }
+  }
+  dynamic "network" {
+    for_each = var.networks
+    content {
+      network_id = network.value.network_id
+      ip         = network.value.ip
     }
   }
 }

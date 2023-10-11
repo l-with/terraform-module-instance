@@ -93,6 +93,8 @@ variable "ipv4_address" {
 variable "networks" {
   type = list(object({
     network_id = number,
+    ip         = optional(string, null)
+    alias_ips  = optional(list(string), null)
   }))
   default = []
 }
