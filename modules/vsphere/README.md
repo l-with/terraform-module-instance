@@ -40,6 +40,7 @@ No modules.
 | [vsphere_datacenter.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/datacenter) | data source |
 | [vsphere_datastore.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/datastore) | data source |
 | [vsphere_network.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/network) | data source |
+| [vsphere_resource_pool.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/resource_pool) | data source |
 | [vsphere_tag_category.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/tag_category) | data source |
 | [vsphere_virtual_machine.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/virtual_machine) | data source |
 
@@ -59,7 +60,7 @@ No modules.
 | <a name="input_tags"></a> [tags](#input\_tags) | the tags to create and assign to the instance | `list(string)` | `[]` | no |
 | <a name="input_type"></a> [type](#input\_type) | the type of the instance (will be transformed matching the possiblities of the cloud\_provider) | <pre>object({<br>    vcpus : number,<br>    ram : number,<br>    disk : number,<br>  })</pre> | `null` | no |
 | <a name="input_user_data"></a> [user\_data](#input\_user\_data) | the cloud-Init user data to use during instance creation (base64 encoded, size limit 65535) | `string` | `null` | no |
-| <a name="input_vsphere"></a> [vsphere](#input\_vsphere) | the vsphere names of the datacenter, datastore, cluster and network and optional the name of tag\_category and disk and the folder | <pre>object({<br>    datacenter_name   = string<br>    datastore_name    = string<br>    cluster_name      = string<br>    network_name      = string<br>    folder            = optional(string, "/")<br>    disk_name         = optional(string, "disk0")<br>    tag_category_name = optional(string, null)<br>  })</pre> | `null` | no |
+| <a name="input_vsphere"></a> [vsphere](#input\_vsphere) | the vsphere names of the datacenter, datastore, cluster and network and optional the name of tag\_category and disk and the folder | <pre>object({<br>    datacenter_name    = string<br>    datastore_name     = string<br>    cluster_name       = string<br>    resource_pool_name = optional(string, null)<br>    network_name       = string<br>    folder             = optional(string, "/")<br>    disk_name          = optional(string, "disk0")<br>    tag_category_name  = optional(string, null)<br>  })</pre> | `null` | no |
 | <a name="input_vsphere_wait_for_guest_net_timeout"></a> [vsphere\_wait\_for\_guest\_net\_timeout](#input\_vsphere\_wait\_for\_guest\_net\_timeout) | the amount of time, in minutes, to wait for an available guest IP address on the virtual machine<br>    - default (coded in terraform) depends on ipv4\_address\_var: 0 if true, 5 else | `number` | `5` | no |
 
 #### Outputs
