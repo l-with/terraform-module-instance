@@ -1,13 +1,14 @@
 variable "vsphere" {
   description = "the vsphere names of the datacenter, datastore, cluster and network and optional the name of tag_category and disk and the folder"
   type = object({
-    datacenter_name   = string
-    datastore_name    = string
-    cluster_name      = string
-    network_name      = string
-    folder            = optional(string, "/")
-    disk_name         = optional(string, "disk0")
-    tag_category_name = optional(string, null)
+    datacenter_name    = string
+    datastore_name     = string
+    cluster_name       = string
+    resource_pool_name = optional(string, null)
+    network_name       = string
+    folder             = optional(string, "/")
+    disk_name          = optional(string, "disk0")
+    tag_category_name  = optional(string, null)
   })
   default = null
 }

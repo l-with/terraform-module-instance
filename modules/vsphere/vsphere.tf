@@ -1,6 +1,7 @@
 locals {
   vsphere_wait_for_guest_net_timeout = var.ipv4_address_var ? 0 : var.vsphere_wait_for_guest_net_timeout
 }
+
 data "vsphere_datacenter" "instance" {
   count = var.instance ? 1 : 0
 
@@ -41,6 +42,12 @@ data "vsphere_tag_category" "instance" {
   name = var.vsphere.tag_category_name
 }
 
+data "vsphere_resource_pool" "instance" {
+  count = (var.instance && var.vsphere.resource_pool_name != null) ? 1 : 0
+
+  name = var.vsphere.resource_pool_name
+}
+
 resource "vsphere_tag" "instance" {
   count = var.instance ? length(var.tags) : 0
 
@@ -58,7 +65,7 @@ resource "vsphere_virtual_machine" "instance" {
     })
   )
   name             = var.name
-  resource_pool_id = data.vsphere_compute_cluster.instance[0].resource_pool_id
+  resource_pool_id = var.vsphere.resource_pool_name == null ? data.vsphere_compute_cluster.instance[0].resource_pool_id : data.vsphere_resource_pool.instance[0].id
   datastore_id     = data.vsphere_datastore.instance[0].id
   guest_id         = data.vsphere_virtual_machine.instance[0].guest_id
   folder           = var.vsphere.folder
