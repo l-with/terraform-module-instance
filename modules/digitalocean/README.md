@@ -16,8 +16,8 @@ The motivation is to make switching between platforms as easy as possible.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
-| <a name="requirement_digitalocean"></a> [digitalocean](#requirement\_digitalocean) | ~> 2.22.2 |
-| <a name="requirement_http"></a> [http](#requirement\_http) | ~> 3.4.0 |
+| <a name="requirement_digitalocean"></a> [digitalocean](#requirement\_digitalocean) | ~> 2.31 |
+| <a name="requirement_http"></a> [http](#requirement\_http) | ~> 3.4 |
 
 #### Providers
 

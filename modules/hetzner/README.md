@@ -16,8 +16,8 @@ The motivation is to make switching between platforms as easy as possible.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
-| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.42 |
-| <a name="requirement_http"></a> [http](#requirement\_http) | ~> 3.4.0 |
+| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.44 |
+| <a name="requirement_http"></a> [http](#requirement\_http) | ~> 3.4 |
 
 #### Providers
 
