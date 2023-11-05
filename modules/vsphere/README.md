@@ -18,7 +18,7 @@ The motivation is to make switching between platforms as easy as possible.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
-| <a name="requirement_vsphere"></a> [vsphere](#requirement\_vsphere) | ~> 2.4.2 |
+| <a name="requirement_vsphere"></a> [vsphere](#requirement\_vsphere) | ~> 2.5.1 |
 
 #### Providers
 
