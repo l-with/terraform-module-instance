@@ -3,11 +3,11 @@ terraform {
   required_providers {
     digitalocean = {
       source  = "digitalocean/digitalocean"
-      version = "~> 2.22.2"
+      version = "~> 2.31"
     }
     http = {
       source  = "hashicorp/http"
-      version = "~> 3.4.0"
+      version = "~> 3.4"
     }
   }
 }
