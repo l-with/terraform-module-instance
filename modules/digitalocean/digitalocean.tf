@@ -88,7 +88,7 @@ resource "digitalocean_tag" "instance" {
 }
 
 resource "digitalocean_droplet" "instance" {
-  count = var.instance ? 1 : 0
+  count = var.instance && !var.ignore_change_name ? 1 : 0
 
   name      = local.digitalocean_droplet_name
   image     = local.digitalocean_image
@@ -100,4 +100,23 @@ resource "digitalocean_droplet" "instance" {
     var.assign_tags,
     digitalocean_tag.instance[*].id
   )
+}
+
+resource "digitalocean_droplet" "instance_ignore_change_name" {
+  count = var.instance && var.ignore_change_name ? 1 : 0
+
+  name      = local.digitalocean_droplet_name
+  image     = local.digitalocean_image
+  size      = local.digitalocean_droplet_size
+  region    = local.digitalocean_region_slug
+  ssh_keys  = var.ssh_keys
+  user_data = var.user_data
+  tags = concat(
+    var.assign_tags,
+    digitalocean_tag.instance[*].id
+  )
+
+  lifecycle {
+    ignore_changes = [name]
+  }
 }

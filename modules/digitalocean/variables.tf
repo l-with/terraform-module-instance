@@ -128,3 +128,9 @@ variable "ssh_keys" {
   type        = list(string)
   default     = []
 }
+
+variable "ignore_change_name" {
+  description = "if changes of the attribute name should be ignored"
+  type        = bool
+  default     = false
+}

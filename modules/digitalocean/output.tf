@@ -1,11 +1,15 @@
 output "instance" {
   description = "the instance resource"
-  value       = !var.instance ? null : digitalocean_droplet.instance[0]
+  value = !var.instance ? null : (
+    var.ignore_change_name ? digitalocean_droplet.instance_ignore_change_name[0] : digitalocean_droplet.instance[0]
+  )
 }
 
 output "instance_ip_address" {
   description = "the ip address of the instance"
-  value       = !var.instance ? null : digitalocean_droplet.instance[0].ipv4_address
+  value = !var.instance ? null : (
+    var.ignore_change_name ? digitalocean_droplet.instance_ignore_change_name[0].ipv4_address : digitalocean_droplet.instance[0].ipv4_address
+  )
 }
 
 output "instance_decoupled_ip_address" {
