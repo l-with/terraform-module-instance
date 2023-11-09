@@ -37,6 +37,7 @@ The motivation is to make switching between platforms as easy as possible.
 | Name | Type |
 |------|------|
 | [digitalocean_droplet.instance](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet) | resource |
+| [digitalocean_droplet.instance_ignore_change_name](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet) | resource |
 | [digitalocean_tag.instance](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/tag) | resource |
 | [http_http.digitalocean_images](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [http_http.digitalocean_regions](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
@@ -54,6 +55,7 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="input_digitalocean_preferred_country_region_slugs"></a> [digitalocean\_preferred\_country\_region\_slugs](#input\_digitalocean\_preferred\_country\_region\_slugs) | the region slug that should be preferred for the countries with more than one slug | `list(map(string))` | <pre>[<br>  {<br>    "US": "nyc3"<br>  }<br>]</pre> | no |
 | <a name="input_digitalocean_region_slug_pattern_country_code_mapping"></a> [digitalocean\_region\_slug\_pattern\_country\_code\_mapping](#input\_digitalocean\_region\_slug\_pattern\_country\_code\_mapping) | the mapping of region slug to country | `list(map(string))` | <pre>[<br>  {<br>    "ams3": "NL",<br>    "blr1": "IN",<br>    "fra1": "DE",<br>    "lon1": "GB",<br>    "nyc1": "US",<br>    "nyc3": "US",<br>    "sfo2": "US",<br>    "sfo3": "US",<br>    "sgp1": "SG",<br>    "syd1": "AU",<br>    "tor1": "CA"<br>  }<br>]</pre> | no |
 | <a name="input_digitalocean_token"></a> [digitalocean\_token](#input\_digitalocean\_token) | the Digital Ocean API token (used to query the server types) | `string` | `null` | no |
+| <a name="input_ignore_change_name"></a> [ignore\_change\_name](#input\_ignore\_change\_name) | if changes of the attribute name should be ignored | `bool` | `false` | no |
 | <a name="input_image"></a> [image](#input\_image) | the image the instance should be created from | `string` | `null` | no |
 | <a name="input_instance"></a> [instance](#input\_instance) | if the instance should be created | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | the name of the instance | `string` | `null` | no |
