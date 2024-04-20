@@ -105,6 +105,10 @@ resource "digitalocean_droplet" "instance" {
 resource "digitalocean_droplet" "instance_ignore_change_name" {
   count = var.instance && var.ignore_change_name ? 1 : 0
 
+  lifecycle {
+    ignore_changes = [name]
+  }
+
   name      = local.digitalocean_droplet_name
   image     = local.digitalocean_image
   size      = local.digitalocean_droplet_size
@@ -115,8 +119,4 @@ resource "digitalocean_droplet" "instance_ignore_change_name" {
     var.assign_tags,
     digitalocean_tag.instance[*].id
   )
-
-  lifecycle {
-    ignore_changes = [name]
-  }
 }
