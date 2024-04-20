@@ -95,3 +95,9 @@ variable "ipv4_address" {
   type        = string
   default     = null
 }
+
+variable "ignore_changes" {
+  description = "if changes of the attributes memory, name, num_cpus, vapp should be ignored"
+  type        = bool
+  default     = false
+}
