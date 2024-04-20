@@ -36,6 +36,7 @@ No modules.
 |------|------|
 | [vsphere_tag.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/resources/tag) | resource |
 | [vsphere_virtual_machine.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/resources/virtual_machine) | resource |
+| [vsphere_virtual_machine.instance_ignore_changes](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/resources/virtual_machine) | resource |
 | [vsphere_compute_cluster.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/compute_cluster) | data source |
 | [vsphere_datacenter.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/datacenter) | data source |
 | [vsphere_datastore.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/datastore) | data source |
@@ -51,6 +52,7 @@ No modules.
 | <a name="input_assign_tag_ids"></a> [assign\_tag\_ids](#input\_assign\_tag\_ids) | the tag ids to assign to the instance | `list(string)` | `[]` | no |
 | <a name="input_country"></a> [country](#input\_country) | the [ISO 3166 country code](https://www.iso.org/obp/ui/#search) (Alpha-2) where the instance should be created (ignored for vsphere) | `any` | `null` | no |
 | <a name="input_decoupled_ip"></a> [decoupled\_ip](#input\_decoupled\_ip) | if the instance should be created with a decoupled ip (ignored for vsphere) | `bool` | `false` | no |
+| <a name="input_ignore_changes"></a> [ignore\_changes](#input\_ignore\_changes) | if changes of the attributes memory, name, num\_cpus, vapp should be ignored | `bool` | `false` | no |
 | <a name="input_image"></a> [image](#input\_image) | the image the instance should be created from | `string` | n/a | yes |
 | <a name="input_instance"></a> [instance](#input\_instance) | if the instance should be created | `bool` | `true` | no |
 | <a name="input_ipv4_address"></a> [ipv4\_address](#input\_ipv4\_address) | the static ipv4\_address (needs decoupled\_ip) | `string` | `null` | no |
