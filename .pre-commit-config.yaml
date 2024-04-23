@@ -1,6 +1,24 @@
 repos:
   - repo: local
     hooks:
+      - id: terraform-fmt-contabo
+        name: terraform fmt contabo
+        language: system
+        entry: bash -c 'cd modules/contabo && terraform fmt'
+        pass_filenames: false
+
+      - id: terraform-validate-contabo
+        name: terraform validate contabo
+        language: system
+        entry: bash -c 'cd modules/contabo && terraform validate'
+        pass_filenames: false
+
+      - id: terraform-docs-contabo
+        name: terraform-docs contabo
+        language: system
+        entry: bash -c 'cd modules/contabo && terraform-docs md table .'
+        pass_filenames: false
+
       - id: terraform-fmt-digitalocean
         name: terraform fmt digitalocean
         language: system
