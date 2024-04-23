@@ -50,7 +50,7 @@ The motivation is to make switching between platforms as easy as possible.
 |------|-------------|------|---------|:--------:|
 | <a name="input_assign_tags"></a> [assign\_tags](#input\_assign\_tags) | the tags to assign to the instance | `list(any)` | `[]` | no |
 | <a name="input_country"></a> [country](#input\_country) | the [ISO 3166 country code](https://www.iso.org/obp/ui/#search) (Alpha-2) where the instance should be created | `any` | `null` | no |
-| <a name="input_cpu_architecture"></a> [cpu\_architecture](#input\_cpu\_architecture) | the needed cpu architecture of the instance, supported values are 'x86', 'arm' | `string` | `"x86"` | no |
+| <a name="input_cpu_architecture"></a> [cpu\_architecture](#input\_cpu\_architecture) | the needed cpu architecture of the instance, supported values are 'x86', 'arm', '*' | `string` | `"x86"` | no |
 | <a name="input_decoupled_ip"></a> [decoupled\_ip](#input\_decoupled\_ip) | if the instance should be created with a decoupled ip | `bool` | `false` | no |
 | <a name="input_hetzner_preferred_country_locations"></a> [hetzner\_preferred\_country\_locations](#input\_hetzner\_preferred\_country\_locations) | the location that should be preferred for the countries with more than one location | `list(map(string))` | <pre>[<br>  {<br>    "DE": "fsn1",<br>    "US": "hil"<br>  }<br>]</pre> | no |
 | <a name="input_hetzner_token"></a> [hetzner\_token](#input\_hetzner\_token) | the Hetzner Cloud API Token (used to query the server types) | `string` | `null` | no |

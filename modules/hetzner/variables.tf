@@ -16,13 +16,13 @@ variable "hetzner_preferred_country_locations" {
 
 variable "cpu_architecture" {
   description = <<EOT
-  the needed cpu architecture of the instance, supported values are 'x86', 'arm'
+  the needed cpu architecture of the instance, supported values are 'x86', 'arm', '*'
 EOT
   type        = string
   default     = "x86"
   validation {
-    condition     = contains(["x86", "arm"], var.cpu_architecture)
-    error_message = "Supported values are 'x86', 'arm'."
+    condition     = contains(["x86", "arm", "*"], var.cpu_architecture)
+    error_message = "Supported values are 'x86', 'arm', '*'."
   }
 }
 
