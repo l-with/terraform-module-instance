@@ -57,8 +57,6 @@ variable "digitalocean_image_map" {
     "rocky-9"         = "rockylinux-9-x64",
     "ubuntu-20.04"    = "ubuntu-20-04-x64",
     "ubuntu-22.04"    = "ubuntu-22-04-x64",
-    "ubuntu-20-04"    = "ubuntu-20-04-x64",
-    "ubuntu-22-04"    = "ubuntu-22-04-x64",
   }]
 }
 

@@ -35,6 +35,7 @@ locals {
   hetzner_server_type_regex_map = {
     "x86" = "cp{0,1}x.*",
     "arm" = "cax.*",
+    "*"   = ".*,"
   }
   hetzner_server_types_without_deprecation = [
     for server_type in local.hetzner_server_types : {
