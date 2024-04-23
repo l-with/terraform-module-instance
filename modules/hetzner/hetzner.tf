@@ -32,6 +32,10 @@ locals {
   hetzner_datacenters   = jsondecode(data.http.hetzner_datacenters.response_body).datacenters
   hetzner_server_images = jsondecode(data.http.hetzner_images.response_body).images
 
+  hetzner_server_type_regex_map = {
+    "x86" = "cp{0,1}x.*",
+    "arm" = "cax.*",
+  }
   hetzner_server_types_without_deprecation = [
     for server_type in local.hetzner_server_types : {
       cores       = server_type.cores,
@@ -40,7 +44,7 @@ locals {
       memory      = server_type.memory,
       name        = server_type.name,
       prices      = server_type.prices
-    }
+    } if can(regex(local.hetzner_server_type_regex_map[var.cpu_architecture], server_type.name))
   ]
   hetzner_server_images_filtered = [
     for server_image in local.hetzner_server_images : {
