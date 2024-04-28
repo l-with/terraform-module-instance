@@ -2,19 +2,22 @@ locals {
   contabo_request_id = upper(uuid())
 }
 
-data "http" "contabo_access_token" {
-  url = "https://auth.contabo.com/auth/realms/contabo/protocol/openid-connect/token?username=${var.contabo_user}&password=${var.contabo_pass}"
-
-  request_body = jsonencode({
-    client_id     = var.contabo_client_id,
-    client_secret = var.contabo_client_secret,
-  })
+data "external" "contabo_token" {
+  program = [
+    "sh",
+    "${path.module}/contabo-get-token.sh"
+  ]
+  query = {
+    contabo_realm_url     = "https://auth.contabo.com/auth/realms/contabo",
+    contabo_client_id     = var.contabo_client_id,
+    contabo_client_secret = var.contabo_client_secret,
+    contabo_user          = var.contabo_user,
+    contabo_pass          = var.contabo_pass,
+  }
 }
 
 locals {
-  contabo_token = jsondecode(
-    data.http.contabo_access_token.response_body
-  )["access_token"]
+  contabo_token = data.external.contabo_token.result["contabo_token"]
 }
 
 data "http" "contabo_images" {
@@ -267,7 +270,7 @@ locals {
     for contabo_image in local.contabo_images :
     contabo_image.name => contabo_image.id
   }
-  contabo_image_id = local.contabo_image_map_name_id[local.contabo_image]
+  contabo_image_id = var.image == null ? null : local.contabo_image_map_name_id[local.contabo_image]
 
   contabo_country_regions = [
     for region in local.contabo_regions :
@@ -291,10 +294,9 @@ locals {
 
   contabo_sorted_price_product_id = sort([
     for sever_type in local.contabo_instance_types_filtered :
-    "${sever_type.price}#${sever_type.product_id}"
+    "${format("%07.2f", sever_type.price)}#${sever_type.product_id}"
   ])
   contabo_instance_product_id = length(local.contabo_sorted_price_product_id) == 0 ? null : split("#", local.contabo_sorted_price_product_id[0])[1]
-
 }
 
 module "contabo_instance_type" {
