@@ -113,13 +113,13 @@ variable "ssh_keys" {
 }
 
 variable "ipv4_address_var" {
-  description = "if the variable ipv4_address is set (for decoupling count)"
+  description = "if the variable ipv4_address is set (for decoupling count) (ignored for contabo)"
   type        = bool
   default     = false
 }
 
 variable "ipv4_address" {
-  description = "the ipv4_address of a hcloud_primary_ip (needs decoupled_ip)"
+  description = "the ipv4_address of a hcloud_primary_ip (needs decoupled_ip) (ignored for contabo)"
   type        = string
   default     = null
 }
