@@ -329,7 +329,7 @@ resource "contabo_tag" "instance" {
 resource "contabo_tag_assignment" "instance" {
   count = var.instance ? length(var.tags) : 0
 
-  tag_id        = contabo_tag.instance[count.index]
+  tag_id        = contabo_tag.instance[count.index].id
   resource_type = "instance"
   resource_id   = contabo_instance.instance[0].id
 }
