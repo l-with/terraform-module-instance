@@ -318,6 +318,24 @@ module "contabo_instance_type" {
   error_message = "error: no matching server type available"
 }
 
+data "http" "contabo_secrets" {
+  url = "https://api.contabo.com/v1/secrets?size=200"
+  request_headers = {
+    Authorization = "Bearer ${local.contabo_token}",
+    x-request-id  = local.contabo_request_id,
+  }
+}
+
+locals {
+  contabo_secrets = jsondecode(data.http.contabo_secrets.response_body).data
+  contabo_ssh_key_ids = flatten([
+    for ssh_key in var.ssh_keys : [
+      for secret in local.contabo_secrets :
+        secret.secretId if secret.name == ssh_key
+    ]
+  ])
+}
+
 resource "contabo_instance" "instance" {
   count = var.instance ? 1 : 0
 
@@ -325,7 +343,7 @@ resource "contabo_instance" "instance" {
 
   image_id   = local.contabo_image_id
   product_id = local.contabo_instance_product_id
-  ssh_keys   = var.ssh_keys
+  ssh_keys   = local.contabo_ssh_key_ids
   user_data  = var.user_data
 }
 

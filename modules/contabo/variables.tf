@@ -107,8 +107,8 @@ variable "tag_color" {
 }
 
 variable "ssh_keys" {
-  description = "the SSH key IDs which should be injected into the instance at creation time"
-  type        = list(number)
+  description = "the SSH keys names which should be injected into the instance at creation time"
+  type        = list(string)
   default     = []
 }
 
