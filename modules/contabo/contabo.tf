@@ -1,5 +1,5 @@
 locals {
-  contabo_request_id = upper(uuid())
+  contabo_request_id = upper(uuidv5("url", "terraform-module-instance"))
 }
 
 data "external" "contabo_token" {
@@ -268,7 +268,7 @@ locals {
   contabo_image     = var.image == null ? null : !contains(keys(local.contabo_image_map), var.image) ? var.image : local.contabo_image_map[var.image]
   contabo_image_map_name_id = {
     for contabo_image in local.contabo_images :
-    contabo_image.name => contabo_image.id
+    contabo_image.name => contabo_image.imageId
   }
   contabo_image_id = var.image == null ? null : local.contabo_image_map_name_id[local.contabo_image]
 
