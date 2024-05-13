@@ -21,7 +21,7 @@ locals {
 }
 
 data "http" "contabo_images" {
-  url = "https://api.contabo.com/v1/comput/images?size=200"
+  url = "https://api.contabo.com/v1/compute/images?size=200"
   request_headers = {
     Authorization = "Bearer ${local.contabo_token}",
     x-request-id  = local.contabo_request_id,
