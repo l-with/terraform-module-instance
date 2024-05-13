@@ -1,16 +1,15 @@
 locals {
   contabo_request_id = uuidv5(
-    "url", 
-            join(
-          ":",
-          [
-            "terraform-module-instance//"
-            path.module,
-            path.root,
-          ]
-        )
-
-    "terraform-module-instance")
+    "url",
+    join(
+      ":",
+      [
+        "terraform-module-instance/contabo/",
+        path.module,
+        path.root,
+      ]
+    )
+  )
 }
 
 data "external" "contabo_token" {
