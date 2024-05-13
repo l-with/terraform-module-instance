@@ -331,7 +331,7 @@ locals {
   contabo_ssh_key_ids = flatten([
     for ssh_key in var.ssh_keys : [
       for secret in local.contabo_secrets :
-        secret.secretId if secret.name == ssh_key
+      secret.secretId if secret.name == ssh_key
     ]
   ])
 }
