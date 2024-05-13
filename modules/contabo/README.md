@@ -47,8 +47,8 @@
 | <a name="input_decoupled_ip"></a> [decoupled\_ip](#input\_decoupled\_ip) | if the instance should be created with a decoupled ip (ignored for contabo) | `bool` | `false` | no |
 | <a name="input_image"></a> [image](#input\_image) | the image the instance should be created from | `string` | `null` | no |
 | <a name="input_instance"></a> [instance](#input\_instance) | if the instance should be created | `bool` | `true` | no |
-| <a name="input_ipv4_address"></a> [ipv4\_address](#input\_ipv4\_address) | the ipv4\_address of a hcloud\_primary\_ip (needs decoupled\_ip) | `string` | `null` | no |
-| <a name="input_ipv4_address_var"></a> [ipv4\_address\_var](#input\_ipv4\_address\_var) | if the variable ipv4\_address is set (for decoupling count) | `bool` | `false` | no |
+| <a name="input_ipv4_address"></a> [ipv4\_address](#input\_ipv4\_address) | the ipv4\_address of a hcloud\_primary\_ip (needs decoupled\_ip) (ignored for contabo) | `string` | `null` | no |
+| <a name="input_ipv4_address_var"></a> [ipv4\_address\_var](#input\_ipv4\_address\_var) | if the variable ipv4\_address is set (for decoupling count) (ignored for contabo) | `bool` | `false` | no |
 | <a name="input_name"></a> [name](#input\_name) | the name of the instance | `string` | `null` | no |
 | <a name="input_networks"></a> [networks](#input\_networks) | n/a | <pre>list(object({<br>    network_id = number,<br>    ip         = optional(string, null)<br>    alias_ips  = optional(list(string), null)<br>  }))</pre> | `[]` | no |
 | <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | the SSH key IDs which should be injected into the instance at creation time | `list(number)` | `[]` | no |
@@ -66,4 +66,6 @@
 | <a name="output_contabo_instance_types"></a> [contabo\_instance\_types](#output\_contabo\_instance\_types) | the list of the contabo instance types |
 | <a name="output_contabo_regions"></a> [contabo\_regions](#output\_contabo\_regions) | the list of the contabo regions |
 | <a name="output_instance"></a> [instance](#output\_instance) | the instance resource |
+| <a name="output_instance_decoupled_ip_address"></a> [instance\_decoupled\_ip\_address](#output\_instance\_decoupled\_ip\_address) | the decoupled ip address of the instance (default is instance\_ip\_address) |
+| <a name="output_instance_ip_address"></a> [instance\_ip\_address](#output\_instance\_ip\_address) | the ip address of the instance |
 <!-- END_TF_DOCS -->
