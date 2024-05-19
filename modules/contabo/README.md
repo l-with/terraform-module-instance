@@ -1,3 +1,15 @@
+# Terraform Module instance hetzner
+
+Terraform module to provide a sever instance on
+
+- [contabo](https://registry.terraform.io/providers/contabo/contabo/latest)
+
+## Motivation
+
+The motivation is to make switching between platforms as easy as possible.
+
+## terraform
+
 <!-- BEGIN_TF_DOCS -->
 #### Requirements
 

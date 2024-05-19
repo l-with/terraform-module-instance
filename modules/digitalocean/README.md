@@ -1,6 +1,6 @@
 # Terraform Module instance digitalocean
 
-Terraform module to provide instance on 
+Terraform module to provide instance on
 
 - [digitalocean](https://registry.terraform.io/providers/digitalocean/digitalocean/latest) 
 
@@ -11,7 +11,7 @@ The motivation is to make switching between platforms as easy as possible.
 ## terraform
 
 <!-- BEGIN_TF_DOCS -->
-#### Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
@@ -19,20 +19,20 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="requirement_digitalocean"></a> [digitalocean](#requirement\_digitalocean) | ~> 2.31 |
 | <a name="requirement_http"></a> [http](#requirement\_http) | ~> 3.4 |
 
-#### Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.22.3 |
 | <a name="provider_http"></a> [http](#provider\_http) | 3.4.0 |
 
-#### Modules
+### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_digitalocean_droplet_size"></a> [digitalocean\_droplet\_size](#module\_digitalocean\_droplet\_size) | rhythmictech/errorcheck/terraform | ~> 1.3.0 |
 
-#### Resources
+### Resources
 
 | Name | Type |
 |------|------|
@@ -43,7 +43,7 @@ The motivation is to make switching between platforms as easy as possible.
 | [http_http.digitalocean_regions](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [http_http.digitalocean_sizes](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 
-#### Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -64,7 +64,7 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="input_type"></a> [type](#input\_type) | the type of the instance (will be transformed matching the possiblities of the cloud\_provider) | <pre>object({<br>    vcpus : number,<br>    ram : number,<br>    disk : number,<br>  })</pre> | `null` | no |
 | <a name="input_user_data"></a> [user\_data](#input\_user\_data) | the cloud-Init user data to use during instance creation<br>    NOTE: digitalocean does not support base64 encoded user\_data (and as a consequence also not gzipped and base64 encoded user\_data) | `string` | `null` | no |
 
-#### Outputs
+### Outputs
 
 | Name | Description |
 |------|-------------|

@@ -1,6 +1,6 @@
 # Terraform Module instance hetzner
 
-Terraform module to provide a sever instance on 
+Terraform module to provide a sever instance on
 
 - [hetzner](https://registry.terraform.io/providers/hetznercloud/hcloud/latest)
 
@@ -11,7 +11,7 @@ The motivation is to make switching between platforms as easy as possible.
 ## terraform
 
 <!-- BEGIN_TF_DOCS -->
-#### Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
@@ -19,20 +19,20 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.44 |
 | <a name="requirement_http"></a> [http](#requirement\_http) | ~> 3.4 |
 
-#### Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | 1.42.1 |
 | <a name="provider_http"></a> [http](#provider\_http) | 3.4.0 |
 
-#### Modules
+### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_hetzner_server_type"></a> [hetzner\_server\_type](#module\_hetzner\_server\_type) | rhythmictech/errorcheck/terraform | ~> 1.3.0 |
 
-#### Resources
+### Resources
 
 | Name | Type |
 |------|------|
@@ -44,7 +44,7 @@ The motivation is to make switching between platforms as easy as possible.
 | [http_http.hetzner_locations](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [http_http.hetzner_server_types](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 
-#### Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -65,7 +65,7 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="input_type"></a> [type](#input\_type) | the type of the instance (will be transformed matching the possiblities of the cloud\_provider) | <pre>object({<br>    vcpus : number,<br>    ram : number,<br>    disk : number,<br>  })</pre> | `null` | no |
 | <a name="input_user_data"></a> [user\_data](#input\_user\_data) | the cloud-Init user data to use during instance creation (size limit 32768) | `string` | `null` | no |
 
-#### Outputs
+### Outputs
 
 | Name | Description |
 |------|-------------|

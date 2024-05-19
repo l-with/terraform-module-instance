@@ -2,6 +2,7 @@
 
 Terraform modules to provide instances on 
 
+- [contabo](https://registry.terraform.io/providers/contabo/contabo/latest)
 - [digitalocean](https://registry.terraform.io/providers/digitalocean/digitalocean/latest) 
 - [hetzner](https://registry.terraform.io/providers/hetznercloud/hcloud/latest)
 - [vsphere](https://registry.terraform.io/providers/hashicorp/vsphere/latest)

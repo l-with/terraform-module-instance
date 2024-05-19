@@ -1,9 +1,7 @@
 # Terraform Modul instance vsphere
 
-Terraform module to provide instance on 
+Terraform module to provide instance on
 
-- [digitalocean](https://registry.terraform.io/providers/digitalocean/digitalocean/latest) 
-- [hetzner](https://registry.terraform.io/providers/hetznercloud/hcloud/latest)
 - [vsphere](https://registry.terraform.io/providers/hashicorp/vsphere/latest)
 
 ## Motivation
@@ -13,24 +11,24 @@ The motivation is to make switching between platforms as easy as possible.
 ## terraform
 
 <!-- BEGIN_TF_DOCS -->
-#### Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
 | <a name="requirement_vsphere"></a> [vsphere](#requirement\_vsphere) | ~> 2.5 |
 
-#### Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_vsphere"></a> [vsphere](#provider\_vsphere) | 2.4.2 |
 
-#### Modules
+### Modules
 
 No modules.
 
-#### Resources
+### Resources
 
 | Name | Type |
 |------|------|
@@ -45,7 +43,7 @@ No modules.
 | [vsphere_tag_category.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/tag_category) | data source |
 | [vsphere_virtual_machine.instance](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/data-sources/virtual_machine) | data source |
 
-#### Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -65,7 +63,7 @@ No modules.
 | <a name="input_vsphere"></a> [vsphere](#input\_vsphere) | the vsphere names of the datacenter, datastore, cluster and network and optional the name of tag\_category and disk and the folder | <pre>object({<br>    datacenter_name    = string<br>    datastore_name     = string<br>    cluster_name       = string<br>    resource_pool_name = optional(string, null)<br>    network_name       = string<br>    folder             = optional(string, "/")<br>    disk_name          = optional(string, "disk0")<br>    tag_category_name  = optional(string, null)<br>  })</pre> | `null` | no |
 | <a name="input_vsphere_wait_for_guest_net_timeout"></a> [vsphere\_wait\_for\_guest\_net\_timeout](#input\_vsphere\_wait\_for\_guest\_net\_timeout) | the amount of time, in minutes, to wait for an available guest IP address on the virtual machine<br>    - default (coded in terraform) depends on ipv4\_address\_var: 0 if true, 5 else | `number` | `5` | no |
 
-#### Outputs
+### Outputs
 
 | Name | Description |
 |------|-------------|
