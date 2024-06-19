@@ -43,6 +43,12 @@ variable "country" {
   default     = null
 }
 
+variable "hetzner_datacenter_name" {
+  description = "the hetzner datacenter name to create the server in"
+  type        = string
+  default     = null
+}
+
 variable "type" {
   description = "the type of the instance (will be transformed matching the possiblities of the cloud_provider)"
   type = object({

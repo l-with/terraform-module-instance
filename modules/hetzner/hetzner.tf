@@ -80,7 +80,12 @@ locals {
     for datacenter in local.hetzner_datacenters :
     datacenter.location.name => datacenter.name
   }
-  hetzner_datacenter_name = local.hetzner_location_name == null ? null : local.hetzner_location_datacenter[local.hetzner_location_name]
+  hetzner_datacenter_name = (
+    var.hetzner_datacenter_name != null ? var.hetzner_datacenter_name : (
+      local.hetzner_location_name == null ? null :
+      local.hetzner_location_datacenter[local.hetzner_location_name]
+    )
+  )
   hetzner_server_types_filtered_location_prices = [
     for hetzner_server_type in local.hetzner_server_types_filtered : merge(
       hetzner_server_type,
@@ -149,6 +154,7 @@ resource "hcloud_server" "instance" {
     for_each = var.decoupled_ip ? [1] : []
     content {
       ipv4 = var.ipv4_address_var ? data.hcloud_primary_ip.instance[0].id : hcloud_primary_ip.instance[0].id
+      ipv6 = var.ipv4_address_var ? data.hcloud_primary_ip.instance[0].id : hcloud_primary_ip.instance[0].id
     }
   }
   dynamic "network" {
