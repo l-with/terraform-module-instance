@@ -52,6 +52,7 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="input_country"></a> [country](#input\_country) | the [ISO 3166 country code](https://www.iso.org/obp/ui/#search) (Alpha-2) where the instance should be created | `any` | `null` | no |
 | <a name="input_cpu_architecture"></a> [cpu\_architecture](#input\_cpu\_architecture) | the needed cpu architecture of the instance, supported values are 'x86', 'arm', '*' | `string` | `"x86"` | no |
 | <a name="input_decoupled_ip"></a> [decoupled\_ip](#input\_decoupled\_ip) | if the instance should be created with a decoupled ip | `bool` | `false` | no |
+| <a name="input_hetzner_datacenter_name"></a> [hetzner\_datacenter\_name](#input\_hetzner\_datacenter\_name) | the hetzner datacenter name to create the server in | `string` | `null` | no |
 | <a name="input_hetzner_preferred_country_locations"></a> [hetzner\_preferred\_country\_locations](#input\_hetzner\_preferred\_country\_locations) | the location that should be preferred for the countries with more than one location | `list(map(string))` | <pre>[<br>  {<br>    "DE": "fsn1",<br>    "US": "hil"<br>  }<br>]</pre> | no |
 | <a name="input_hetzner_token"></a> [hetzner\_token](#input\_hetzner\_token) | the Hetzner Cloud API Token (used to query the server types) | `string` | `null` | no |
 | <a name="input_image"></a> [image](#input\_image) | the image the instance should be created from | `string` | `null` | no |
@@ -80,4 +81,5 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="output_instance"></a> [instance](#output\_instance) | the instance resource |
 | <a name="output_instance_decoupled_ip_address"></a> [instance\_decoupled\_ip\_address](#output\_instance\_decoupled\_ip\_address) | the decoupled ip address of the instance (default is instance\_ip\_address) |
 | <a name="output_instance_ip_address"></a> [instance\_ip\_address](#output\_instance\_ip\_address) | the ip address of the instance |
+| <a name="output_instance_ipv6_address"></a> [instance\_ipv6\_address](#output\_instance\_ipv6\_address) | the ip address of the instance |
 <!-- END_TF_DOCS -->
