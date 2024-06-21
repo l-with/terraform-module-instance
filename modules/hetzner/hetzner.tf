@@ -138,7 +138,42 @@ resource "hcloud_primary_ip" "instance" {
 }
 
 resource "hcloud_server" "instance" {
-  count = var.instance ? 1 : 0
+  count = var.instance && !var.ignore_changes ? 1 : 0
+
+  name        = var.name
+  image       = var.image
+  server_type = local.hetzner_server_type
+  datacenter  = local.hetzner_datacenter_name
+  ssh_keys    = var.ssh_keys
+  user_data   = var.user_data
+  labels = {
+    for tag in var.tags :
+    tag => "true"
+  }
+  dynamic "public_net" {
+    for_each = var.decoupled_ip ? [1] : []
+    content {
+      ipv4 = var.ipv4_address_var ? data.hcloud_primary_ip.instance[0].id : hcloud_primary_ip.instance[0].id
+      ipv6 = var.ipv4_address_var ? data.hcloud_primary_ip.instance[0].id : hcloud_primary_ip.instance[0].id
+    }
+  }
+  dynamic "network" {
+    for_each = var.networks
+    content {
+      network_id = network.value.network_id
+      ip         = network.value.ip
+    }
+  }
+}
+
+resource "hcloud_server" "instance_ignore_changes" {
+  count = var.instance && var.ignore_changes ? 1 : 0
+
+  lifecycle {
+    ignore_changes = [
+      backup,
+    ]
+  }
 
   name        = var.name
   image       = var.image
