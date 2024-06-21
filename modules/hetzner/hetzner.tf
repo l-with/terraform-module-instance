@@ -171,7 +171,7 @@ resource "hcloud_server" "instance_ignore_changes" {
 
   lifecycle {
     ignore_changes = [
-      backup,
+      backups,
     ]
   }
 
