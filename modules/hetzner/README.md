@@ -38,6 +38,7 @@ The motivation is to make switching between platforms as easy as possible.
 |------|------|
 | [hcloud_primary_ip.instance](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/primary_ip) | resource |
 | [hcloud_server.instance](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/server) | resource |
+| [hcloud_server.instance_ignore_changes](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/server) | resource |
 | [hcloud_primary_ip.instance](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/data-sources/primary_ip) | data source |
 | [http_http.hetzner_datacenters](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [http_http.hetzner_images](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
@@ -55,6 +56,7 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="input_hetzner_datacenter_name"></a> [hetzner\_datacenter\_name](#input\_hetzner\_datacenter\_name) | the hetzner datacenter name to create the server in | `string` | `null` | no |
 | <a name="input_hetzner_preferred_country_locations"></a> [hetzner\_preferred\_country\_locations](#input\_hetzner\_preferred\_country\_locations) | the location that should be preferred for the countries with more than one location | `list(map(string))` | <pre>[<br>  {<br>    "DE": "fsn1",<br>    "US": "hil"<br>  }<br>]</pre> | no |
 | <a name="input_hetzner_token"></a> [hetzner\_token](#input\_hetzner\_token) | the Hetzner Cloud API Token (used to query the server types) | `string` | `null` | no |
+| <a name="input_ignore_changes"></a> [ignore\_changes](#input\_ignore\_changes) | if changes of the attribute backup should be ignored | `bool` | `false` | no |
 | <a name="input_image"></a> [image](#input\_image) | the image the instance should be created from | `string` | `null` | no |
 | <a name="input_instance"></a> [instance](#input\_instance) | if the instance should be created | `bool` | `true` | no |
 | <a name="input_ipv4_address"></a> [ipv4\_address](#input\_ipv4\_address) | the ipv4\_address of a hcloud\_primary\_ip (needs decoupled\_ip) | `string` | `null` | no |
