@@ -56,8 +56,8 @@ output "instance_ipv4_address" {
   description = "the ipv4 address of the instance"
   value = !var.instance ? null : (
     var.decoupled_ip ? (
-    var.ipv4_address != null ? var.ipv4_address : hcloud_primary_ip.instance_v4[0].ip_address
-  ) : hcloud_server.instance[0].ipv4_address
+      var.ipv4_address != null ? var.ipv4_address : hcloud_primary_ip.instance_v4[0].ip_address
+    ) : hcloud_server.instance[0].ipv4_address
   )
 }
 
@@ -65,8 +65,8 @@ output "instance_ip_address" {
   description = "the ipv4 address of the instance"
   value = !var.instance ? null : (
     var.decoupled_ip ? (
-    var.ipv4_address != null ? var.ipv4_address : hcloud_primary_ip.instance_v4[0].ip_address
-  ) : hcloud_server.instance[0].ipv4_address
+      var.ipv4_address != null ? var.ipv4_address : hcloud_primary_ip.instance_v4[0].ip_address
+    ) : hcloud_server.instance[0].ipv4_address
   )
 }
 

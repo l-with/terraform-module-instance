@@ -36,10 +36,12 @@ The motivation is to make switching between platforms as easy as possible.
 
 | Name | Type |
 |------|------|
-| [hcloud_primary_ip.instance](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/primary_ip) | resource |
+| [hcloud_primary_ip.instance_v4](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/primary_ip) | resource |
+| [hcloud_primary_ip.instance_v6](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/primary_ip) | resource |
 | [hcloud_server.instance](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/server) | resource |
 | [hcloud_server.instance_ignore_changes](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/server) | resource |
-| [hcloud_primary_ip.instance](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/data-sources/primary_ip) | data source |
+| [hcloud_primary_ip.instance_v4](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/data-sources/primary_ip) | data source |
+| [hcloud_primary_ip.instance_v6](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/data-sources/primary_ip) | data source |
 | [http_http.hetzner_datacenters](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [http_http.hetzner_images](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 | [http_http.hetzner_locations](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
@@ -61,6 +63,8 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="input_instance"></a> [instance](#input\_instance) | if the instance should be created | `bool` | `true` | no |
 | <a name="input_ipv4_address"></a> [ipv4\_address](#input\_ipv4\_address) | the ipv4\_address of a hcloud\_primary\_ip (needs decoupled\_ip) | `string` | `null` | no |
 | <a name="input_ipv4_address_var"></a> [ipv4\_address\_var](#input\_ipv4\_address\_var) | if the variable ipv4\_address is set (for decoupling count) | `bool` | `false` | no |
+| <a name="input_ipv6_address"></a> [ipv6\_address](#input\_ipv6\_address) | the ipv6\_address of a hcloud\_primary\_ip (needs decoupled\_ip) | `string` | `null` | no |
+| <a name="input_ipv6_address_var"></a> [ipv6\_address\_var](#input\_ipv6\_address\_var) | if the variable ipv6\_address is set (for decoupling count) | `bool` | `false` | no |
 | <a name="input_name"></a> [name](#input\_name) | the name of the instance | `string` | `null` | no |
 | <a name="input_networks"></a> [networks](#input\_networks) | n/a | <pre>list(object({<br>    network_id = number,<br>    ip         = optional(string, null)<br>    alias_ips  = optional(list(string), null)<br>  }))</pre> | `[]` | no |
 | <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | the SSH key IDs or names which should be injected into the server at creation time | `list(string)` | `[]` | no |
@@ -82,6 +86,7 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="output_hetzner_server_types"></a> [hetzner\_server\_types](#output\_hetzner\_server\_types) | the list of the hetzner server types |
 | <a name="output_instance"></a> [instance](#output\_instance) | the instance resource |
 | <a name="output_instance_decoupled_ip_address"></a> [instance\_decoupled\_ip\_address](#output\_instance\_decoupled\_ip\_address) | the decoupled ip address of the instance (default is instance\_ip\_address) |
-| <a name="output_instance_ip_address"></a> [instance\_ip\_address](#output\_instance\_ip\_address) | the ip address of the instance |
-| <a name="output_instance_ipv6_address"></a> [instance\_ipv6\_address](#output\_instance\_ipv6\_address) | the ip address of the instance |
+| <a name="output_instance_ip_address"></a> [instance\_ip\_address](#output\_instance\_ip\_address) | the ipv4 address of the instance |
+| <a name="output_instance_ipv4_address"></a> [instance\_ipv4\_address](#output\_instance\_ipv4\_address) | the ipv4 address of the instance |
+| <a name="output_instance_ipv6_address"></a> [instance\_ipv6\_address](#output\_instance\_ipv6\_address) | the ipv6 address of the instance |
 <!-- END_TF_DOCS -->
