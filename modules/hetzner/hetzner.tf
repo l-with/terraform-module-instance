@@ -117,13 +117,19 @@ module "hetzner_server_type" {
   error_message = "error: no matching server type available"
 }
 
-data "hcloud_primary_ip" "instance" {
+data "hcloud_primary_ip" "instance_v4" {
   count = var.ipv4_address_var ? 1 : 0
 
   ip_address = var.ipv4_address
 }
 
-resource "hcloud_primary_ip" "instance" {
+data "hcloud_primary_ip" "instance_v6" {
+  count = var.ipv6_address_var ? 1 : 0
+
+  ip_address = var.ipv6_address
+}
+
+resource "hcloud_primary_ip" "instance_v4" {
   count = var.instance && var.decoupled_ip && !var.ipv4_address_var ? 1 : 0
 
   name          = var.name
@@ -131,6 +137,20 @@ resource "hcloud_primary_ip" "instance" {
   assignee_type = "server"
   auto_delete   = false
   type          = "ipv4"
+  labels = {
+    for tag in var.tags :
+    tag => "true"
+  }
+}
+
+resource "hcloud_primary_ip" "instance_v6" {
+  count = var.instance && var.decoupled_ip && !var.ipv6_address_var ? 1 : 0
+
+  name          = var.name
+  datacenter    = local.hetzner_datacenter_name
+  assignee_type = "server"
+  auto_delete   = false
+  type          = "ipv6"
   labels = {
     for tag in var.tags :
     tag => "true"
@@ -153,8 +173,8 @@ resource "hcloud_server" "instance" {
   dynamic "public_net" {
     for_each = var.decoupled_ip ? [1] : []
     content {
-      ipv4 = var.ipv4_address_var ? data.hcloud_primary_ip.instance[0].id : hcloud_primary_ip.instance[0].id
-      ipv6 = var.ipv4_address_var ? data.hcloud_primary_ip.instance[0].id : hcloud_primary_ip.instance[0].id
+      ipv4 = var.ipv4_address_var ? data.hcloud_primary_ip.instance_v4[0].id : hcloud_primary_ip.instance_v4[0].id
+      ipv6 = var.ipv6_address_var ? data.hcloud_primary_ip.instance_v6[0].id : hcloud_primary_ip.instance_v6[0].id
     }
   }
   dynamic "network" {
@@ -189,8 +209,8 @@ resource "hcloud_server" "instance_ignore_changes" {
   dynamic "public_net" {
     for_each = var.decoupled_ip ? [1] : []
     content {
-      ipv4 = var.ipv4_address_var ? data.hcloud_primary_ip.instance[0].id : hcloud_primary_ip.instance[0].id
-      ipv6 = var.ipv4_address_var ? data.hcloud_primary_ip.instance[0].id : hcloud_primary_ip.instance[0].id
+      ipv4 = var.ipv4_address_var ? data.hcloud_primary_ip.instance_v4[0].id : hcloud_primary_ip.instance_v4[0].id
+      ipv6 = var.ipv6_address_var ? data.hcloud_primary_ip.instance_v6[0].id : hcloud_primary_ip.instance_v4[0].id
     }
   }
   dynamic "network" {

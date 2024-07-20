@@ -108,6 +108,18 @@ variable "ipv4_address" {
   default     = null
 }
 
+variable "ipv6_address_var" {
+  description = "if the variable ipv6_address is set (for decoupling count)"
+  type        = bool
+  default     = false
+}
+
+variable "ipv6_address" {
+  description = "the ipv6_address of a hcloud_primary_ip (needs decoupled_ip)"
+  type        = string
+  default     = null
+}
+
 variable "networks" {
   type = list(object({
     network_id = number,
