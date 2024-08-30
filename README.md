@@ -32,7 +32,7 @@ The motivation is to make switching between platforms as easy as possible.
 - vsphere
   - for the [attribute vapp of the resource vsphere_virtual_machine](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/resources/virtual_machine#vapp) in the sub-key properties the key public-keys can be used 
 
-_Summary_
+**Summary**
 
 | provider     | ssh-key specification possibility |
 |--------------|-----------------------------------|
