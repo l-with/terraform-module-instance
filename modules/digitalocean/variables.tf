@@ -122,7 +122,7 @@ variable "tags" {
 }
 
 variable "ssh_keys" {
-  description = "the SSH key IDs or names which should be injected into the server at creation time"
+  description = "the SSH key IDs or fingerprints which should be injected into the server at creation time"
   type        = list(string)
   default     = []
 }
