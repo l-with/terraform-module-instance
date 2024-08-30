@@ -12,12 +12,13 @@ variable "scaleway_secret_key" {
   sensitive   = true
 }
 
-variable "hetzner_preferred_country_locations" {
+variable "scaleway_preferred_country_zones" {
   description = "the location that should be preferred for the countries with more than one location"
   type        = list(map(string))
   default = [{
-    "DE" = "fsn1",
-    "US" = "hil",
+    "FR" = "fr-par-1",
+    "NL" = "nl-ams-1",
+    "PL" = "pl-waw-1",
   }]
 }
 
@@ -51,11 +52,13 @@ variable "type" {
 variable "name" {
   description = "the name of the instance"
   type        = string
+  default     = null
 }
 
 variable "image" {
   description = "the image the instance should be created from"
   type        = string
+  default     = null
 }
 
 variable "user_data" {
@@ -81,4 +84,35 @@ variable "ssh_keys" {
   description = "the SSH key IDs or names which should be injected into the server at creation time"
   type        = list(string)
   default     = []
+}
+
+variable "ipv4_address_var" {
+  description = "if the variable ipv4_address is set (for decoupling count)"
+  type        = bool
+  default     = false
+}
+
+variable "ipv4_address" {
+  description = "the ipv4_address of a hcloud_primary_ip (needs decoupled_ip)"
+  type        = string
+  default     = null
+}
+
+variable "scaleway_image_map" {
+  description = "the mapping of image names to scaleway image names"
+  type        = list(map(string))
+  default = [{
+    "alma-8"          = "almalinux_8",
+    "alma-9"          = "almalinux_9",
+    "centos-stream-9" = "centos_stream_9",
+    "debian-11"       = "debian_bullseye",
+    "debian-12"       = "debian_bookworm",
+    "fedora-39"       = "fedora_39",
+    "fedora-40"       = "fedora_40",
+    "rocky-8"         = "rockylinux_8",
+    "rocky-9"         = "rockylinux_9",
+    "ubuntu-20.04"    = "ubuntu_focal",
+    "ubuntu-22.04"    = "ubuntu_jammy",
+    "ubuntu-24.04"    = "ubuntu_noble"
+  }]
 }
