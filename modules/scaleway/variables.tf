@@ -81,7 +81,13 @@ variable "tags" {
 }
 
 variable "ssh_keys" {
-  description = "the SSH key IDs or names which should be injected into the server at creation time"
+  description = "nut used, because not available for scaleway"
+  type        = list(string)
+  default     = []
+}
+
+variable "public_keys" {
+  description = "the list of public ssh keys to create in the default project"
   type        = list(string)
   default     = []
 }

@@ -81,6 +81,13 @@ locals {
 
 }
 
+resource "scaleway_iam_ssh_key" "instance" {
+  count = length(var.public_keys)
+
+  name       = "${local.scaleway_instance_name}_${count.index}"
+  public_key = var.public_keys[count.index]
+}
+
 resource "scaleway_instance_server" "instance" {
   count = var.instance ? 1 : 0
 
