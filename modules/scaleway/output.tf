@@ -1,11 +1,11 @@
 output "instance" {
   description = "the instance resource"
-  value = !var.instance ? null : scaleway_instance_server.instance[0]
+  value       = !var.instance ? null : scaleway_instance_server.instance[0]
 }
 
 output "instance_ip_address" {
   description = "the ip address of the instance"
-  value = !var.instance ? null : scaleway_instance_server.instance[0].public_ip
+  value       = !var.instance ? null : scaleway_instance_server.instance[0].public_ip
 }
 
 output "scaleway_zone" {
