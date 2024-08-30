@@ -27,7 +27,7 @@ The motivation is to make switching between platforms as easy as possible.
   - for the [attribute ssh_keys of the resource hcloud_server](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/server#ssh_keys) the ids or names of ssh keys can be used<br>
 - scaleway
   - there is no attribute ssh_keys for the resource [scaleway_instance_server](https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/resources/instance_server)
-  - the ssh-key of the organization and the project are used for the instance
+  - the ssh-keys of the organization and the project are used for the instance
   - the only possibility is to create ssh-keys with the [resource scaleway_iam_ssh_key](https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/resources/iam_ssh_key)
 - vsphere
   - for the [attribute vapp of the resource vsphere_virtual_machine](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs/resources/virtual_machine#vapp) in the sub-key properties the key public-keys can be used 
