@@ -55,6 +55,24 @@ repos:
         entry: bash -c 'cd modules/hetzner && terraform-docs md table .'
         pass_filenames: false
 
+      - id: terraform-fmt-scaleway
+        name: terraform fmt scaleway
+        language: system
+        entry: bash -c 'cd modules/scaleway && terraform fmt'
+        pass_filenames: false
+
+      - id: terraform-validate-scaleway
+        name: terraform validate scaleway
+        language: system
+        entry: bash -c 'cd modules/scaleway && terraform validate'
+        pass_filenames: false
+
+      - id: terraform-docs-scaleway
+        name: terraform-docs scaleway
+        language: system
+        entry: bash -c 'cd modules/scaleway && terraform-docs md table .'
+        pass_filenames: false
+
       - id: terraform-fmt-vsphere
         name: terraform fmt vsphere
         language: system
