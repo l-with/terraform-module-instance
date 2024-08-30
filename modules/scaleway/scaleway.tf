@@ -84,11 +84,11 @@ locals {
 resource "scaleway_instance_server" "instance" {
   count = var.instance ? 1 : 0
 
-  name      = local.scaleway_instance_name
-  tags      = var.tags
-  type      = local.scaleway_instance_commercial_type
-  image     = local.scaleway_image
-  zone      = local.scaleway_zone
+  name              = local.scaleway_instance_name
+  tags              = var.tags
+  type              = local.scaleway_instance_commercial_type
+  image             = local.scaleway_image
+  zone              = local.scaleway_zone
   enable_dynamic_ip = true
   //user_data = var.user_data
 }
