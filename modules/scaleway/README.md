@@ -24,6 +24,7 @@ The motivation is to make switching between platforms as easy as possible.
 |------|---------|
 | <a name="provider_http"></a> [http](#provider\_http) | 3.4.0 |
 | <a name="provider_scaleway"></a> [scaleway](#provider\_scaleway) | 2.43.0 |
+| <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ### Modules
 
@@ -35,6 +36,7 @@ No modules.
 |------|------|
 | [scaleway_iam_ssh_key.instance](https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/resources/iam_ssh_key) | resource |
 | [scaleway_instance_server.instance](https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/resources/instance_server) | resource |
+| [terraform_data.user_data](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
 | [http_http.scaleway_instance_types](https://registry.terraform.io/providers/hashicorp/http/latest/docs/data-sources/http) | data source |
 
 ### Inputs
@@ -53,11 +55,13 @@ No modules.
 | <a name="input_scaleway_access_key"></a> [scaleway\_access\_key](#input\_scaleway\_access\_key) | the scaleway access key | `string` | `null` | no |
 | <a name="input_scaleway_image_map"></a> [scaleway\_image\_map](#input\_scaleway\_image\_map) | the mapping of image names to scaleway image names | `list(map(string))` | <pre>[<br>  {<br>    "alma-8": "almalinux_8",<br>    "alma-9": "almalinux_9",<br>    "centos-stream-9": "centos_stream_9",<br>    "debian-11": "debian_bullseye",<br>    "debian-12": "debian_bookworm",<br>    "fedora-39": "fedora_39",<br>    "fedora-40": "fedora_40",<br>    "rocky-8": "rockylinux_8",<br>    "rocky-9": "rockylinux_9",<br>    "ubuntu-20.04": "ubuntu_focal",<br>    "ubuntu-22.04": "ubuntu_jammy",<br>    "ubuntu-24.04": "ubuntu_noble"<br>  }<br>]</pre> | no |
 | <a name="input_scaleway_preferred_country_zones"></a> [scaleway\_preferred\_country\_zones](#input\_scaleway\_preferred\_country\_zones) | the location that should be preferred for the countries with more than one location | `list(map(string))` | <pre>[<br>  {<br>    "FR": "fr-par-1",<br>    "NL": "nl-ams-1",<br>    "PL": "pl-waw-1"<br>  }<br>]</pre> | no |
+| <a name="input_scaleway_project_id"></a> [scaleway\_project\_id](#input\_scaleway\_project\_id) | n/a | `string` | `null` | no |
 | <a name="input_scaleway_secret_key"></a> [scaleway\_secret\_key](#input\_scaleway\_secret\_key) | the scaleway secret key | `string` | `null` | no |
 | <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | nut used, because not available for scaleway | `list(string)` | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | the tags to create and assign to the instance | `list(string)` | `[]` | no |
 | <a name="input_type"></a> [type](#input\_type) | the type of the instance (will be transformed matching the possiblities of the cloud\_provider) | <pre>object({<br>    vcpus : number,<br>    ram : number,<br>    disk : number,<br>  })</pre> | `null` | no |
 | <a name="input_user_data"></a> [user\_data](#input\_user\_data) | the cloud-Init user data to use during instance creation | `string` | `null` | no |
+| <a name="input_user_data_triggers_replace"></a> [user\_data\_triggers\_replace](#input\_user\_data\_triggers\_replace) | if a change of user\_data should trigger replace | `bool` | `true` | no |
 
 ### Outputs
 
