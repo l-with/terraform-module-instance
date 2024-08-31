@@ -34,10 +34,13 @@ The motivation is to make switching between platforms as easy as possible.
 
 **Summary**
 
-| provider     | ssh-key specification possibility |
-|--------------|-----------------------------------|
-| contabo      | name                              |
-| digitalocean | name                              |
-| hetzner      | id or name                        |
-| scaleway     | public key                        |
-| vsphere      | public key                        |
+| provider     | ssh-key specification possibility | resource ssh-key                                                                                                        |
+|--------------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| contabo      | name                              | [contabo_secret](https://registry.terraform.io/providers/contabo/contabo/latest/docs/resources/contabo_secret)          |
+| digitalocean | name                              | [digitalocean_ssh_key](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/ssh_key) |
+| hetzner      | id or name                        | [hcloud_ssh_key](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/ssh_key)             | 
+| scaleway     | public key                        | [scaleway_iam_ssh_key](https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/resources/iam_ssh_key)     |
+| vsphere      | public key                        | -                                                                                                                       |
+ 
+### cloud-init
+

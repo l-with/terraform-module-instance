@@ -88,14 +88,24 @@ resource "scaleway_iam_ssh_key" "instance" {
   public_key = var.public_keys[count.index]
 }
 
+resource "terraform_data" "user_data" {
+  input = var.user_data_triggers_replace ? var.user_data: null
+}
+
 resource "scaleway_instance_server" "instance" {
   count = var.instance ? 1 : 0
 
+  lifecycle {
+    replace_triggered_by = [terraform_data.user_data]
+  }
   name              = local.scaleway_instance_name
   tags              = var.tags
   type              = local.scaleway_instance_commercial_type
   image             = local.scaleway_image
   zone              = local.scaleway_zone
   enable_dynamic_ip = true
-  //user_data = var.user_data
+  user_data         = {
+    //instance = local.scaleway_instance_name
+    cloud-init = var.user_data
+  }
 }

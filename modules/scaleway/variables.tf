@@ -12,6 +12,11 @@ variable "scaleway_secret_key" {
   sensitive   = true
 }
 
+variable "scaleway_project_id" {
+  type    = string
+  default = null
+}
+
 variable "scaleway_preferred_country_zones" {
   description = "the location that should be preferred for the countries with more than one location"
   type        = list(map(string))
@@ -102,6 +107,12 @@ variable "ipv4_address" {
   description = "the ipv4_address of a hcloud_primary_ip (needs decoupled_ip)"
   type        = string
   default     = null
+}
+
+variable "user_data_triggers_replace" {
+  description = "if a change of user_data should trigger replace"
+  type        = bool
+  default     = true
 }
 
 variable "scaleway_image_map" {
