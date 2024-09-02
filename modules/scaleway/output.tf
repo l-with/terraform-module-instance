@@ -8,13 +8,15 @@ output "instance_ip_address" {
   value       = !var.instance ? null : scaleway_instance_server.instance[0].public_ip
 }
 
-output "scaleway_zone" {
-  description = "the name of the selected scaleway zone"
-  value       = local.scaleway_zone
+output "scaleway_infos" {
+  description = "scaleway infos about the selected instance"
+  value       = {
+    zone = local.scaleway_zone,
+    type = local.scaleway_instance_commercial_type,
+    monthly_price = local.scaleway_instance_monthly_price,
+  }
 }
 
-output "scaleway_instance_type" {
-  description = "the selected scaleway instance commercial type"
-  value       = local.scaleway_instance_commercial_type
+output "scaleway_instance_types" {
+  value = local.scaleway_instance_types
 }
-

@@ -61,6 +61,7 @@ locals {
       commercial_type = commercial_type
       arch            = instance_type.arch,
       hourly_price    = instance_type.hourly_price,
+      monthly_price   = instance_type.monthly_price,
       ncpus           = instance_type.ncpus,
       ram             = instance_type.ram,
       ram_mb          = instance_type.ram / (1024 * 1024),
@@ -68,13 +69,14 @@ locals {
   ]
   scaleway_instance_types_filtered = [
     for instance_type in local.scaleway_instance_types_list :
-    instance_type if instance_type.ncpus >= var.type.vcpus
+    instance_type if instance_type.ncpus >= var.type.vcpus && instance_type.ram >= (var.type.ram * 1024 * 1024 * 1024)
   ]
-  scaleway_sorted_hourly_price_commercial_type = sort([
+  scaleway_sorted_hourly_price_commercial_type_monthly_price = sort([
     for instance_type in local.scaleway_instance_types_filtered :
-    "${instance_type.hourly_price}#${instance_type.commercial_type}"
+    "${instance_type.hourly_price}#${instance_type.commercial_type}#${instance_type.monthly_price}"
   ])
-  scaleway_instance_commercial_type = length(local.scaleway_sorted_hourly_price_commercial_type) == 0 ? null : split("#", local.scaleway_sorted_hourly_price_commercial_type[0])[1]
+  scaleway_instance_commercial_type = length(local.scaleway_sorted_hourly_price_commercial_type_monthly_price) == 0 ? null : split("#", local.scaleway_sorted_hourly_price_commercial_type_monthly_price[0])[1]
+  scaleway_instance_monthly_price   = length(local.scaleway_sorted_hourly_price_commercial_type_monthly_price) == 0 ? null : split("#", local.scaleway_sorted_hourly_price_commercial_type_monthly_price[0])[2]
   scaleway_instance_name            = var.name == null ? "instance-server" : var.name
   scaleway_image_map                = merge(var.scaleway_image_map...)
   scaleway_image                    = var.image == null ? null : !contains(keys(local.scaleway_image_map), var.image) ? var.image : local.scaleway_image_map[var.image]
@@ -103,6 +105,9 @@ resource "scaleway_instance_server" "instance" {
   type              = local.scaleway_instance_commercial_type
   image             = local.scaleway_image
   zone              = local.scaleway_zone
+  root_volume {
+    size_in_gb = var.type.disk
+  }
   enable_dynamic_ip = true
   user_data = {
     //instance = local.scaleway_instance_name
