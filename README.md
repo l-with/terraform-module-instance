@@ -2,11 +2,11 @@
 
 Terraform modules to provide instances on 
 
-- [contabo](https://registry.terraform.io/providers/contabo/contabo/latest)
-- [digitalocean](https://registry.terraform.io/providers/digitalocean/digitalocean/latest) 
-- [hetzner](https://registry.terraform.io/providers/hetznercloud/hcloud/latest)
-- [scaleway](https://registry.terraform.io/providers/scaleway/scaleway/latest)
-- [vsphere](https://registry.terraform.io/providers/hashicorp/vsphere/latest)
+- [contabo](https://registry.terraform.io/providers/contabo/contabo/latest): [terraform module instance contabo](modules/contabo/README.md)
+- [digitalocean](https://registry.terraform.io/providers/digitalocean/digitalocean/latest): [terraform module instance digitalocean](modules/digitalocean/README.md)
+- [hetzner](https://registry.terraform.io/providers/hetznercloud/hcloud/latest): [terraform module instance hetzner](modules/hetzner/README.md)
+- [scaleway](https://registry.terraform.io/providers/scaleway/scaleway/latest): [terraform module instance scaleway](modules/scaleway/README.md)
+- [vsphere](https://registry.terraform.io/providers/hashicorp/vsphere/latest): [terraform module instance vsphere](modules/vsphere/README.md)
 
 ## Motivation
 
