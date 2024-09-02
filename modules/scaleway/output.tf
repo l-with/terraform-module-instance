@@ -10,9 +10,9 @@ output "instance_ip_address" {
 
 output "scaleway_infos" {
   description = "scaleway infos about the selected instance"
-  value       = {
-    zone = local.scaleway_zone,
-    type = local.scaleway_instance_commercial_type,
+  value = {
+    zone          = local.scaleway_zone,
+    type          = local.scaleway_instance_commercial_type,
     monthly_price = local.scaleway_instance_monthly_price,
   }
 }
