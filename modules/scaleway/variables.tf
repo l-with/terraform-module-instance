@@ -21,9 +21,9 @@ variable "scaleway_preferred_country_zones" {
   description = "the location that should be preferred for the countries with more than one location"
   type        = list(map(string))
   default = [{
-    "FR" = "fr-par-1",
+    "FR" = "fr-par-2",
     "NL" = "nl-ams-1",
-    "PL" = "pl-waw-1",
+    "PL" = "pl-waw-2",
   }]
 }
 
