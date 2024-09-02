@@ -69,6 +69,6 @@ No modules.
 |------|-------------|
 | <a name="output_instance"></a> [instance](#output\_instance) | the instance resource |
 | <a name="output_instance_ip_address"></a> [instance\_ip\_address](#output\_instance\_ip\_address) | the ip address of the instance |
-| <a name="output_scaleway_instance_type"></a> [scaleway\_instance\_type](#output\_scaleway\_instance\_type) | the selected scaleway instance commercial type |
-| <a name="output_scaleway_zone"></a> [scaleway\_zone](#output\_scaleway\_zone) | the name of the selected scaleway zone |
+| <a name="output_scaleway_infos"></a> [scaleway\_infos](#output\_scaleway\_infos) | scaleway infos about the selected instance |
+| <a name="output_scaleway_instance_types"></a> [scaleway\_instance\_types](#output\_scaleway\_instance\_types) | n/a |
 <!-- END_TF_DOCS -->

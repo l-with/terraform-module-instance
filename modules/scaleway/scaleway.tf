@@ -100,11 +100,11 @@ resource "scaleway_instance_server" "instance" {
   lifecycle {
     replace_triggered_by = [terraform_data.user_data]
   }
-  name              = local.scaleway_instance_name
-  tags              = var.tags
-  type              = local.scaleway_instance_commercial_type
-  image             = local.scaleway_image
-  zone              = local.scaleway_zone
+  name  = local.scaleway_instance_name
+  tags  = var.tags
+  type  = local.scaleway_instance_commercial_type
+  image = local.scaleway_image
+  zone  = local.scaleway_zone
   root_volume {
     size_in_gb = var.type.disk
   }
