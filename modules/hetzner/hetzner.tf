@@ -146,7 +146,7 @@ resource "hcloud_primary_ip" "instance_v4" {
 resource "hcloud_primary_ip" "instance_v6" {
   count = var.instance && var.decoupled_ip && !var.ipv6_address_var ? 1 : 0
 
-  name          = var.name
+  name          = "${var.name}_v6"
   datacenter    = local.hetzner_datacenter_name
   assignee_type = "server"
   auto_delete   = false
