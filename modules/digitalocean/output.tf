@@ -7,7 +7,7 @@ output "instance" {
 
 output "name" {
   description = "the name of the instance"
-  value = var.name
+  value       = var.name
 }
 
 output "instance_ip_address" {

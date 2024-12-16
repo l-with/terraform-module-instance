@@ -89,4 +89,5 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="output_instance_ip_address"></a> [instance\_ip\_address](#output\_instance\_ip\_address) | the ipv4 address of the instance |
 | <a name="output_instance_ipv4_address"></a> [instance\_ipv4\_address](#output\_instance\_ipv4\_address) | the ipv4 address of the instance |
 | <a name="output_instance_ipv6_address"></a> [instance\_ipv6\_address](#output\_instance\_ipv6\_address) | the ipv6 address of the instance |
+| <a name="output_name"></a> [name](#output\_name) | the name of the instance |
 <!-- END_TF_DOCS -->
