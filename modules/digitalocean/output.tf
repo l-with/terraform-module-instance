@@ -5,6 +5,11 @@ output "instance" {
   )
 }
 
+output "name" {
+  description = "the name of the instance"
+  value = var.name
+}
+
 output "instance_ip_address" {
   description = "the ip address of the instance"
   value = !var.instance ? null : (

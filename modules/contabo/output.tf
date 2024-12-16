@@ -23,6 +23,11 @@ output "instance" {
   value       = !var.instance ? null : contabo_instance.instance[0]
 }
 
+output "name" {
+  description = "the name of the instance"
+  value = var.name
+}
+
 output "instance_ip_address" {
   description = "the ip address of the instance"
   value       = !var.instance ? null : contabo_instance.instance[0].ip_config[0].v4[0].ip

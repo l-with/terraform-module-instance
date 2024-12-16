@@ -43,6 +43,11 @@ output "instance" {
   value       = !var.instance ? null : hcloud_server.instance[0]
 }
 
+output "name" {
+  description = "the name of the instance"
+  value = var.name
+}
+
 output "instance_ipv6_address" {
   description = "the ipv6 address of the instance"
   value = !var.instance ? null : (
