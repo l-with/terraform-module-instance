@@ -14,7 +14,7 @@ The motivation is to make switching between platforms as easy as possible.
 #### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
 | <a name="requirement_contabo"></a> [contabo](#requirement\_contabo) | ~> 0.1 |
 | <a name="requirement_external"></a> [external](#requirement\_external) | ~> 2.3 |
@@ -23,7 +23,7 @@ The motivation is to make switching between platforms as easy as possible.
 #### Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_contabo"></a> [contabo](#provider\_contabo) | 0.1.26 |
 | <a name="provider_external"></a> [external](#provider\_external) | 2.3.3 |
 | <a name="provider_http"></a> [http](#provider\_http) | 3.4.2 |
@@ -31,13 +31,13 @@ The motivation is to make switching between platforms as easy as possible.
 #### Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_contabo_instance_type"></a> [contabo\_instance\_type](#module\_contabo\_instance\_type) | rhythmictech/errorcheck/terraform | ~> 1.3.0 |
 
 #### Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [contabo_instance.instance](https://registry.terraform.io/providers/contabo/contabo/latest/docs/resources/instance) | resource |
 | [contabo_tag.instance](https://registry.terraform.io/providers/contabo/contabo/latest/docs/resources/tag) | resource |
 | [contabo_tag_assignment.instance](https://registry.terraform.io/providers/contabo/contabo/latest/docs/resources/tag_assignment) | resource |
@@ -48,7 +48,7 @@ The motivation is to make switching between platforms as easy as possible.
 #### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_assign_tags"></a> [assign\_tags](#input\_assign\_tags) | the tags to assign to the instance | `list(any)` | `[]` | no |
 | <a name="input_contabo_client_id"></a> [contabo\_client\_id](#input\_contabo\_client\_id) | the contabo oauth2 client id | `string` | n/a | yes |
 | <a name="input_contabo_client_secret"></a> [contabo\_client\_secret](#input\_contabo\_client\_secret) | the contabo oauth2 client secret | `string` | n/a | yes |
@@ -73,7 +73,7 @@ The motivation is to make switching between platforms as easy as possible.
 #### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_contabo_images"></a> [contabo\_images](#output\_contabo\_images) | the list of the contabo images |
 | <a name="output_contabo_instance_product_id"></a> [contabo\_instance\_product\_id](#output\_contabo\_instance\_product\_id) | the selected contabo instance product id |
 | <a name="output_contabo_instance_types"></a> [contabo\_instance\_types](#output\_contabo\_instance\_types) | the list of the contabo instance types |

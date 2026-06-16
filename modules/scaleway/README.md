@@ -14,14 +14,14 @@ The motivation is to make switching between platforms as easy as possible.
 ### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
 | <a name="requirement_scaleway"></a> [scaleway](#requirement\_scaleway) | ~> 2.43 |
 
 ### Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_http"></a> [http](#provider\_http) | 3.4.0 |
 | <a name="provider_scaleway"></a> [scaleway](#provider\_scaleway) | 2.43.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
@@ -33,7 +33,7 @@ No modules.
 ### Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [scaleway_iam_ssh_key.instance](https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/resources/iam_ssh_key) | resource |
 | [scaleway_instance_server.instance](https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/resources/instance_server) | resource |
 | [terraform_data.user_data](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
@@ -42,7 +42,7 @@ No modules.
 ### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_assign_tags"></a> [assign\_tags](#input\_assign\_tags) | the tags to assign to the instance | `list(any)` | `[]` | no |
 | <a name="input_country"></a> [country](#input\_country) | the [ISO 3166 country code](https://www.iso.org/obp/ui/#search) (Alpha-2) where the instance should be created | `any` | `null` | no |
 | <a name="input_decoupled_ip"></a> [decoupled\_ip](#input\_decoupled\_ip) | if the instance should be created with a decoupled ip | `bool` | `false` | no |
@@ -66,7 +66,7 @@ No modules.
 ### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_instance"></a> [instance](#output\_instance) | the instance resource |
 | <a name="output_instance_ip_address"></a> [instance\_ip\_address](#output\_instance\_ip\_address) | the ip address of the instance |
 | <a name="output_scaleway_infos"></a> [scaleway\_infos](#output\_scaleway\_infos) | scaleway infos about the selected instance |

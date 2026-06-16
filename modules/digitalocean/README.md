@@ -14,7 +14,7 @@ The motivation is to make switching between platforms as easy as possible.
 ### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
 | <a name="requirement_digitalocean"></a> [digitalocean](#requirement\_digitalocean) | ~> 2.31 |
 | <a name="requirement_http"></a> [http](#requirement\_http) | ~> 3.4 |
@@ -22,20 +22,20 @@ The motivation is to make switching between platforms as easy as possible.
 ### Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.22.3 |
 | <a name="provider_http"></a> [http](#provider\_http) | 3.4.0 |
 
 ### Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_digitalocean_droplet_size"></a> [digitalocean\_droplet\_size](#module\_digitalocean\_droplet\_size) | rhythmictech/errorcheck/terraform | ~> 1.3.0 |
 
 ### Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [digitalocean_droplet.instance](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet) | resource |
 | [digitalocean_droplet.instance_ignore_change_name](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet) | resource |
 | [digitalocean_tag.instance](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/tag) | resource |
@@ -46,7 +46,7 @@ The motivation is to make switching between platforms as easy as possible.
 ### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_assign_tags"></a> [assign\_tags](#input\_assign\_tags) | the tags to assign to the instance | `list(any)` | `[]` | no |
 | <a name="input_country"></a> [country](#input\_country) | the [ISO 3166 country code](https://www.iso.org/obp/ui/#search) (Alpha-2) where the instance should be created | `any` | `null` | no |
 | <a name="input_decoupled_ip"></a> [decoupled\_ip](#input\_decoupled\_ip) | if the instance should be created with a decoupled ip (ignored for digitalocean) | `bool` | `false` | no |
@@ -67,7 +67,7 @@ The motivation is to make switching between platforms as easy as possible.
 ### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_digitalocean_droplet_images"></a> [digitalocean\_droplet\_images](#output\_digitalocean\_droplet\_images) | the list of the digitalocean droplet images |
 | <a name="output_digitalocean_droplet_size"></a> [digitalocean\_droplet\_size](#output\_digitalocean\_droplet\_size) | the selected digitalocean droplet size |
 | <a name="output_digitalocean_droplet_sizes"></a> [digitalocean\_droplet\_sizes](#output\_digitalocean\_droplet\_sizes) | the list of the digitalocean droplet sizes |
