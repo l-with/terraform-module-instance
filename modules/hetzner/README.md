@@ -14,7 +14,7 @@ The motivation is to make switching between platforms as easy as possible.
 ### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
 | <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.44 |
 | <a name="requirement_http"></a> [http](#requirement\_http) | ~> 3.4 |
@@ -22,20 +22,20 @@ The motivation is to make switching between platforms as easy as possible.
 ### Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | 1.42.1 |
 | <a name="provider_http"></a> [http](#provider\_http) | 3.4.0 |
 
 ### Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_hetzner_server_type"></a> [hetzner\_server\_type](#module\_hetzner\_server\_type) | rhythmictech/errorcheck/terraform | ~> 1.3.0 |
 
 ### Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [hcloud_primary_ip.instance_v4](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/primary_ip) | resource |
 | [hcloud_primary_ip.instance_v6](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/primary_ip) | resource |
 | [hcloud_server.instance](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/server) | resource |
@@ -50,7 +50,7 @@ The motivation is to make switching between platforms as easy as possible.
 ### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_assign_tags"></a> [assign\_tags](#input\_assign\_tags) | the tags to assign to the instance | `list(any)` | `[]` | no |
 | <a name="input_country"></a> [country](#input\_country) | the [ISO 3166 country code](https://www.iso.org/obp/ui/#search) (Alpha-2) where the instance should be created | `any` | `null` | no |
 | <a name="input_cpu_architecture"></a> [cpu\_architecture](#input\_cpu\_architecture) | the needed cpu architecture of the instance, supported values are 'x86', 'arm', '*' | `string` | `"x86"` | no |
@@ -58,7 +58,7 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="input_hetzner_datacenter_name"></a> [hetzner\_datacenter\_name](#input\_hetzner\_datacenter\_name) | the hetzner datacenter name to create the server in | `string` | `null` | no |
 | <a name="input_hetzner_preferred_country_locations"></a> [hetzner\_preferred\_country\_locations](#input\_hetzner\_preferred\_country\_locations) | the location that should be preferred for the countries with more than one location | `list(map(string))` | <pre>[<br/>  {<br/>    "DE": "fsn1",<br/>    "US": "hil"<br/>  }<br/>]</pre> | no |
 | <a name="input_hetzner_token"></a> [hetzner\_token](#input\_hetzner\_token) | the Hetzner Cloud API Token (used to query the server types) | `string` | `null` | no |
-| <a name="input_ignore_changes"></a> [ignore\_changes](#input\_ignore\_changes) | if changes of the attributes backups, image should be ignored | `bool` | `false` | no |
+| <a name="input_ignore_changes"></a> [ignore\_changes](#input\_ignore\_changes) | if changes of the attributes backups, image, server\_type should be ignored | `bool` | `false` | no |
 | <a name="input_image"></a> [image](#input\_image) | the image the instance should be created from | `string` | `null` | no |
 | <a name="input_instance"></a> [instance](#input\_instance) | if the instance should be created | `bool` | `true` | no |
 | <a name="input_ipv4_address"></a> [ipv4\_address](#input\_ipv4\_address) | the ipv4\_address of a hcloud\_primary\_ip (needs decoupled\_ip) | `string` | `null` | no |
@@ -75,7 +75,7 @@ The motivation is to make switching between platforms as easy as possible.
 ### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_hetzner_datacenter_name"></a> [hetzner\_datacenter\_name](#output\_hetzner\_datacenter\_name) | the name of the selected hetzner datacenter |
 | <a name="output_hetzner_datacenters"></a> [hetzner\_datacenters](#output\_hetzner\_datacenters) | the list of the hetzner datacenters |
 | <a name="output_hetzner_location_name"></a> [hetzner\_location\_name](#output\_hetzner\_location\_name) | the name of the selected hetzner location |

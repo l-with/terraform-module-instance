@@ -130,7 +130,7 @@ variable "networks" {
 }
 
 variable "ignore_changes" {
-  description = "if changes of the attributes backups, image should be ignored"
+  description = "if changes of the attributes backups, image, server_type should be ignored"
   type        = bool
   default     = false
 }

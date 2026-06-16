@@ -193,6 +193,7 @@ resource "hcloud_server" "instance_ignore_changes" {
     ignore_changes = [
       backups,
       image,
+      server_type,
     ]
   }
 
