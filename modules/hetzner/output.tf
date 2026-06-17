@@ -40,7 +40,9 @@ output "hetzner_datacenter_name" {
 
 output "instance" {
   description = "the instance resource"
-  value       = !var.instance ? null : hcloud_server.instance[0]
+  value       = !var.instance ? null : (
+    var.var.ignore_changes ? hcloud_server.instance_ignore_changes[0] : hcloud_server.instance[0]
+  )
 }
 
 output "name" {
