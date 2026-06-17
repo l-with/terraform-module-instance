@@ -85,7 +85,7 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="output_hetzner_server_type"></a> [hetzner\_server\_type](#output\_hetzner\_server\_type) | the selected hetzner server type |
 | <a name="output_hetzner_server_types"></a> [hetzner\_server\_types](#output\_hetzner\_server\_types) | the list of the hetzner server types |
 | <a name="output_instance"></a> [instance](#output\_instance) | the instance resource |
-| <a name="output_instance_decoupled_ip_address"></a> [instance\_decoupled\_ip\_address](#output\_instance\_decoupled\_ip\_address) | the decoupled ip address of the instance (default is instance\_ip\_address) |
+| <a name="output_instance_decoupled_ip_address"></a> [instance\_decoupled\_ip\_address](#output\_instance\_decoupled\_ip\_address) | the decoupled ip address of the instance |
 | <a name="output_instance_ip_address"></a> [instance\_ip\_address](#output\_instance\_ip\_address) | the ipv4 address of the instance |
 | <a name="output_instance_ipv4_address"></a> [instance\_ipv4\_address](#output\_instance\_ipv4\_address) | the ipv4 address of the instance |
 | <a name="output_instance_ipv6_address"></a> [instance\_ipv6\_address](#output\_instance\_ipv6\_address) | the ipv6 address of the instance |
