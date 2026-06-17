@@ -211,7 +211,7 @@ resource "hcloud_server" "instance_ignore_changes" {
     for_each = var.decoupled_ip ? [1] : []
     content {
       ipv4 = var.ipv4_address_var ? data.hcloud_primary_ip.instance_v4[0].id : hcloud_primary_ip.instance_v4[0].id
-      ipv6 = var.ipv6_address_var ? data.hcloud_primary_ip.instance_v6[0].id : hcloud_primary_ip.instance_v4[0].id
+      ipv6 = var.ipv6_address_var ? data.hcloud_primary_ip.instance_v6[0].id : hcloud_primary_ip.instance_v6[0].id
     }
   }
   dynamic "network" {
