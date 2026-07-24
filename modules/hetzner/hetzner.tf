@@ -189,7 +189,7 @@ resource "hcloud_server" "instance_ignore_changes" {
   name        = var.name
   image       = var.image
   server_type = local.hetzner_server_type
-  location    = local.hetzner_location
+  location    = local.hetzner_location_name
   ssh_keys    = var.ssh_keys
   user_data   = var.user_data
   labels = {
