@@ -16,15 +16,15 @@ The motivation is to make switching between platforms as easy as possible.
 | Name | Version |
 | ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
-| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.44 |
+| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.67 |
 | <a name="requirement_http"></a> [http](#requirement\_http) | ~> 3.4 |
 
 ### Providers
 
 | Name | Version |
 | ---- | ------- |
-| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | 1.42.1 |
-| <a name="provider_http"></a> [http](#provider\_http) | 3.4.0 |
+| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | 1.67.0 |
+| <a name="provider_http"></a> [http](#provider\_http) | 3.6.0 |
 
 ### Modules
 
@@ -76,8 +76,6 @@ The motivation is to make switching between platforms as easy as possible.
 
 | Name | Description |
 | ---- | ----------- |
-| <a name="output_hetzner_datacenter_name"></a> [hetzner\_datacenter\_name](#output\_hetzner\_datacenter\_name) | the name of the selected hetzner datacenter |
-| <a name="output_hetzner_datacenters"></a> [hetzner\_datacenters](#output\_hetzner\_datacenters) | the list of the hetzner datacenters |
 | <a name="output_hetzner_location_name"></a> [hetzner\_location\_name](#output\_hetzner\_location\_name) | the name of the selected hetzner location |
 | <a name="output_hetzner_locations"></a> [hetzner\_locations](#output\_hetzner\_locations) | the list of the hetzner locations |
 | <a name="output_hetzner_preferred_country_locations"></a> [hetzner\_preferred\_country\_locations](#output\_hetzner\_preferred\_country\_locations) | the location that should be preferred for the countries with more than one location |

@@ -122,7 +122,7 @@ resource "hcloud_primary_ip" "instance_v4" {
   count = var.instance && var.decoupled_ip && !var.ipv4_address_var ? 1 : 0
 
   name          = var.name
-  location    = local.hetzner_location_name
+  location      = local.hetzner_location_name
   assignee_type = "server"
   auto_delete   = false
   type          = "ipv4"
