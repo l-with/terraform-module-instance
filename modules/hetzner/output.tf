@@ -13,11 +13,6 @@ output "hetzner_preferred_country_locations" {
   value       = var.hetzner_preferred_country_locations
 }
 
-output "hetzner_datacenters" {
-  description = "the list of the hetzner datacenters"
-  value       = local.hetzner_datacenters
-}
-
 output "hetzner_server_images" {
   description = "the list of the hetzner server images"
   value       = local.hetzner_server_images_filtered
@@ -31,11 +26,6 @@ output "hetzner_server_type" {
 output "hetzner_location_name" {
   description = "the name of the selected hetzner location"
   value       = local.hetzner_location_name
-}
-
-output "hetzner_datacenter_name" {
-  description = "the name of the selected hetzner datacenter"
-  value       = local.hetzner_datacenter_name
 }
 
 output "instance" {

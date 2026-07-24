@@ -29,7 +29,6 @@ data "http" "hetzner_images" {
 locals {
   hetzner_server_types  = jsondecode(data.http.hetzner_server_types.response_body).server_types
   hetzner_locations     = jsondecode(data.http.hetzner_locations.response_body).locations
-  hetzner_datacenters   = jsondecode(data.http.hetzner_datacenters.response_body).datacenters
   hetzner_server_images = jsondecode(data.http.hetzner_images.response_body).images
 
   hetzner_server_type_regex_map = {
@@ -74,16 +73,6 @@ locals {
     length(local.hetzner_country_locations) == 0 ? null : (
       length(local.hetzner_country_location) == 1 ? local.hetzner_country_location[0].name :
       null
-    )
-  )
-  hetzner_location_datacenter = {
-    for datacenter in local.hetzner_datacenters :
-    datacenter.location.name => datacenter.name
-  }
-  hetzner_datacenter_name = (
-    var.hetzner_datacenter_name != null ? var.hetzner_datacenter_name : (
-      local.hetzner_location_name == null ? null :
-      local.hetzner_location_datacenter[local.hetzner_location_name]
     )
   )
   hetzner_server_types_filtered_location_prices = [
@@ -133,7 +122,7 @@ resource "hcloud_primary_ip" "instance_v4" {
   count = var.instance && var.decoupled_ip && !var.ipv4_address_var ? 1 : 0
 
   name          = var.name
-  datacenter    = local.hetzner_datacenter_name
+  location    = local.hetzner_location_name
   assignee_type = "server"
   auto_delete   = false
   type          = "ipv4"
@@ -147,7 +136,7 @@ resource "hcloud_primary_ip" "instance_v6" {
   count = var.instance && var.decoupled_ip && !var.ipv6_address_var ? 1 : 0
 
   name          = "${var.name}_v6"
-  datacenter    = local.hetzner_datacenter_name
+  location      = local.hetzner_location_name
   assignee_type = "server"
   auto_delete   = false
   type          = "ipv6"
@@ -163,7 +152,7 @@ resource "hcloud_server" "instance" {
   name        = var.name
   image       = var.image
   server_type = local.hetzner_server_type
-  datacenter  = local.hetzner_datacenter_name
+  location    = local.hetzner_location_name
   ssh_keys    = var.ssh_keys
   user_data   = var.user_data
   labels = {
@@ -200,7 +189,7 @@ resource "hcloud_server" "instance_ignore_changes" {
   name        = var.name
   image       = var.image
   server_type = local.hetzner_server_type
-  datacenter  = local.hetzner_datacenter_name
+  location    = local.hetzner_location
   ssh_keys    = var.ssh_keys
   user_data   = var.user_data
   labels = {
