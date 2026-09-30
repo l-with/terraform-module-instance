@@ -23,8 +23,8 @@ The motivation is to make switching between platforms as easy as possible.
 
 | Name | Version |
 | ---- | ------- |
-| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | 1.67.0 |
-| <a name="provider_http"></a> [http](#provider\_http) | 3.6.0 |
+| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | 1.69.0 |
+| <a name="provider_http"></a> [http](#provider\_http) | 3.6.2 |
 
 ### Modules
 
@@ -56,6 +56,7 @@ The motivation is to make switching between platforms as easy as possible.
 | <a name="input_cpu_architecture"></a> [cpu\_architecture](#input\_cpu\_architecture) | the needed cpu architecture of the instance, supported values are 'x86', 'arm', '*' | `string` | `"x86"` | no |
 | <a name="input_decoupled_ip"></a> [decoupled\_ip](#input\_decoupled\_ip) | if the instance should be created with a decoupled ip | `bool` | `false` | no |
 | <a name="input_hetzner_datacenter_name"></a> [hetzner\_datacenter\_name](#input\_hetzner\_datacenter\_name) | the hetzner datacenter name to create the server in | `string` | `null` | no |
+| <a name="input_hetzner_location_name"></a> [hetzner\_location\_name](#input\_hetzner\_location\_name) | the hetzner location name to create the server in | `string` | `null` | no |
 | <a name="input_hetzner_preferred_country_locations"></a> [hetzner\_preferred\_country\_locations](#input\_hetzner\_preferred\_country\_locations) | the location that should be preferred for the countries with more than one location | `list(map(string))` | <pre>[<br/>  {<br/>    "DE": "fsn1",<br/>    "US": "hil"<br/>  }<br/>]</pre> | no |
 | <a name="input_hetzner_token"></a> [hetzner\_token](#input\_hetzner\_token) | the Hetzner Cloud API Token (used to query the server types) | `string` | `null` | no |
 | <a name="input_ignore_changes"></a> [ignore\_changes](#input\_ignore\_changes) | if changes of the attributes backups, image, server\_type should be ignored | `bool` | `false` | no |

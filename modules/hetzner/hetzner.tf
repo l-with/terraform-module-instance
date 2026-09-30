@@ -60,6 +60,7 @@ locals {
     for server_type in local.hetzner_server_types_without_deprecation :
     server_type if server_type.cores >= var.type.vcpus && server_type.memory >= var.type.ram && server_type.disk >= var.type.disk
   ]
+
   hetzner_country_locations = [
     for location in local.hetzner_locations :
     location if location.country == var.country
@@ -70,9 +71,11 @@ locals {
     location if location.name == lookup(local.merged_hetzner_preferred_country_locations, var.country, location.name)
   ]
   hetzner_location_name = (
-    length(local.hetzner_country_locations) == 0 ? null : (
-      length(local.hetzner_country_location) == 1 ? local.hetzner_country_location[0].name :
-      null
+    var.hetzner_location_name != null ? var.hetzner_location_name : (
+      length(local.hetzner_country_locations) == 0 ? null : (
+        length(local.hetzner_country_location) == 1 ? local.hetzner_country_location[0].name :
+        null
+      )
     )
   )
   hetzner_server_types_filtered_location_prices = [
